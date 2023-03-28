@@ -1,0 +1,38 @@
+#!/usr/bin/sh
+
+cd ~/.dotfiles/
+SELECTED=`shuf -e */ | fzf`
+
+if [ "$SELECTED" = "bin/" ]
+then
+    cd ~/.dotfiles/bin/.local/bin/; nvim gotoconf
+elif [ "$SELECTED" = "alacritty/" ]
+then
+    nvim ~/.config/alacritty/alacritty.yml
+elif [ "$SELECTED" = "i3/" ]
+then
+    nvim ~/.config/i3/config
+elif [ "$SELECTED" = "keyboard/" ]
+then
+    nvim ~/.config/xkb/prog.cmk
+elif [ "$SELECTED" = "kitty/" ]
+then
+    nvim ~/.config/kitty/kitty.conf
+elif [ "$SELECTED" = "nvim/" ]
+then
+    cd ~/.config/nvim/; nvim init.lua
+elif [ "$SELECTED" = "starship/" ]
+then
+    nvim ~/.config/starship.toml
+elif [ "$SELECTED" = "picom/" ]
+then
+    nvim ~/.config/picom.conf
+elif [ "$SELECTED" = "tmux/" ]
+then
+    nvim ~/.tmux.conf
+elif [ "$SELECTED" = "zsh/" ]
+then
+    nvim ~/.zshrc
+else
+   :
+fi

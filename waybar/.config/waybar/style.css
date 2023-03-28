@@ -1,0 +1,148 @@
+* {
+    font-family: JetBrains Mono Nerd Font;
+    font-size: 18px;
+}
+
+window#waybar {
+    background-color: #181926;
+    color: #cdd6f4;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    background-color: #24273a;
+    color: #b7bdf8;
+    border-radius: 0;
+}
+
+#workspaces button.focused {
+    background-color: #b7bdf8;
+    color: #181926;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #363a4f;
+    color: #b7bdf8;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    color: #cdd6f4;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #626880;
+}
+
+#battery {
+    background-color: #c6a0f6;
+    color: #181926;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: #c6a0f6;
+    color: #181926;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #cdd6f4;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #181926;
+}
+
+#cpu {
+    background-color: #81c8be;
+    color: #181926;
+}
+
+#memory {
+    background-color: #313244;
+}
+
+#disk {
+    background-color: #964B00;
+}
+
+#backlight {
+    background-color: #90b1b1;
+}
+
+#network {
+    background-color: #6a83b5;
+}
+
+#network.disconnected {
+    background-color: #8aadf4;
+}
+
+#pulseaudio {
+    background-color: #f5a97f;
+    color: #181926;
+}
+
+#pulseaudio.muted {
+    background-color: #ed8796;
+    color: #2a5c45;
+}
+
+#tray {
+    background-color: #8aadf4;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
