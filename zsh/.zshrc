@@ -1,13 +1,14 @@
 # Zsh Config
 
 # Powerlevel10k instant
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # Aliases
 alias v='nvim'
 alias ls='exa --icons'
+alias cargo='cargo -q'
 alias search='fzf --preview "bat --style=numbers --color=always --line-range :500 {}"'
 alias open='xdg-open'
 alias la='ls -la'
@@ -38,7 +39,10 @@ bindkey -s "^n" "nvim +MindOpenProject\n"
 # Source
 source ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source ~/.zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # P10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Starship
+eval "$(starship init zsh)"

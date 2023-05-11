@@ -5,19 +5,6 @@ set $up i
 set $right o
 set $term footclient
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# Recommends: rofi-wayland
-set $rofi_cmd rofi \
-        -run-command 'swaymsg exec -- {cmd}' \
-        -run-shell-command 'swaymsg exec -- {terminal} -e {cmd}' \
-        -terminal '$term'
-# Shows a combined list of the applications with desktop files and
-# executables from PATH.
-# TODO: add window with the next release of rofi-wayland
-set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
-
 ### Windows
 default_border pixel 2
 focus_on_window_activation focus
@@ -26,7 +13,7 @@ focus_on_window_activation focus
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg ~/.local/share/backgrounds/flatppuccin_4k_macchiato.png fill
+output * bg ~/Pictures/flatppuccin_4k_macchiato.png fill
 # output transform 90
 #
 # Example configuration:
@@ -62,7 +49,7 @@ output * bg ~/.local/share/backgrounds/flatppuccin_4k_macchiato.png fill
    input "1:1:AT_Translated_Set_2_keyboard" {
        xkb_file ~/.config/xkb/prog.cmk
    }
-#
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -76,8 +63,11 @@ output * bg ~/.local/share/backgrounds/flatppuccin_4k_macchiato.png fill
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
+    # Rofi
+    bindsym $mod+c exec rofi -show calc
+    bindsym $mod+d exec rofi -show combi -combi-modes drun#run -modes combi -show-icons 
+    bindsym $mod+shift+b exec ~/.local/bin/rofi-bluetooth
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -87,7 +77,7 @@ output * bg ~/.local/share/backgrounds/flatppuccin_4k_macchiato.png fill
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+y exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -167,11 +157,7 @@ output * bg ~/.local/share/backgrounds/flatppuccin_4k_macchiato.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
+    bindsym $mod+shift+a focus child
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
@@ -234,9 +220,5 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 
 # Startup Applications
 exec nm-applet &
-exec blueman-applet &
-exec ~/i3-battery-popup/i3-battery-popup &
+exec ~/.local/bin/i3-battery-popup &
 exec foot -s &
-
-exec_always gsettings set org.gnome.desktop.interface gtk-theme "Sweet-nova"
-exec_always gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-blue"

@@ -3,33 +3,45 @@
 cd ~/.dotfiles/
 SELECTED=`shuf -e */ | fzf`
 
-if [ "$SELECTED" = "bin/" ]
-then
-    cd ~/.dotfiles/bin/.local/bin/; nvim gotoconf
-elif [ "$SELECTED" = "alacritty/" ]
+if [ "$SELECTED" = "alacritty/" ]
 then
     nvim ~/.config/alacritty/alacritty.yml
+elif [ "$SELECTED" = "bin/" ]
+then
+    cd ~/.dotfiles/bin/.local/bin/; nvim gotoconf
+elif [ "$SELECTED" = "foot/" ]
+then
+    nvim ~/.config/foot/foot.ini
 elif [ "$SELECTED" = "i3/" ]
 then
     nvim ~/.config/i3/config
 elif [ "$SELECTED" = "keyboard/" ]
 then
     nvim ~/.config/xkb/prog.cmk
-elif [ "$SELECTED" = "kitty/" ]
-then
-    nvim ~/.config/kitty/kitty.conf
 elif [ "$SELECTED" = "nvim/" ]
 then
     cd ~/.config/nvim/; nvim init.lua
-elif [ "$SELECTED" = "starship/" ]
-then
-    nvim ~/.config/starship.toml
 elif [ "$SELECTED" = "picom/" ]
 then
     nvim ~/.config/picom.conf
+elif [ "$SELECTED" = "polybar/" ]
+then
+    nvim ~/.config/polybar/config.ini
+elif [ "$SELECTED" = "starship/" ]
+then
+    nvim ~/.config/starship.toml
+elif [ "$SELECTED" = "sway/" ]
+then
+    nvim ~/.config/sway/config
 elif [ "$SELECTED" = "tmux/" ]
 then
     nvim ~/.tmux.conf
+elif [ "$SELECTED" = "wallpapers/" ]
+then
+    xdg-open ~/.local/share/backgrounds/flatppuccin_4k_macchiato.png
+elif [ "$SELECTED" = "waybar/" ]
+then
+    cd ~/.config/waybar ; nvim config
 elif [ "$SELECTED" = "zsh/" ]
 then
     nvim ~/.zshrc

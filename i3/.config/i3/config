@@ -139,8 +139,6 @@ bindsym $mod+y resize shrink height 3 px or 3 ppt
 bindsym $mod+semicolon resize grow width 3 px or 3 ppt
 
 # Custom Keybinds
-bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Escape exec --no-startup-id lxlock &
 bindsym $mod+shift+s exec --no-startup-id lxqt-leave &
-bindsym $mod+shift+t exec rofi -show calc -modi calc -no-show-match -no-sort
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
 bindsym $mod+p exec --no-startup-id pcmanfm-qt
