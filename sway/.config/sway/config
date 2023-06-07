@@ -5,6 +5,20 @@ set $up i
 set $right o
 set $term footclient
 
+bindsym $mod+shift+b exec --no-startup-id ~/.local/bin/rofi-bluetooth
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+
+# Adjust Screen Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
+
+
+bindsym $mod+Shift+l exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
 ### Windows
 default_border pixel 2
 focus_on_window_activation focus
@@ -13,7 +27,7 @@ focus_on_window_activation focus
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg ~/Pictures/flatppuccin_4k_macchiato.png fill
+output * bg ~/Pictures/wallpapers/4.jpeg fill
 # output transform 90
 #
 # Example configuration:
@@ -39,15 +53,15 @@ output * bg ~/Pictures/flatppuccin_4k_macchiato.png fill
 #
 # Example configuration:
 #
-   input "1739:52545:SYNA7DB5:01_06CB:CD41_Touchpad" {
-       dwt enabled
+   input "type:touchpad" {
+       dwt disabled
        tap enabled
        natural_scroll disabled
        middle_emulation enabled
    }
 
-   input "1:1:AT_Translated_Set_2_keyboard" {
-       xkb_file ~/.config/xkb/prog.cmk
+   input "type:keyboard" {
+       xkb_file ~/.config/xkb/progcolemak.xkb
    }
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -64,9 +78,10 @@ output * bg ~/Pictures/flatppuccin_4k_macchiato.png fill
     bindsym $mod+Shift+q kill
 
     # Rofi
-    bindsym $mod+c exec rofi -show calc
-    bindsym $mod+d exec rofi -show combi -combi-modes drun#run -modes combi -show-icons 
-    bindsym $mod+shift+b exec ~/.local/bin/rofi-bluetooth
+    # bindsym $mod+c exec rofi -show calc
+    bindsym $mod+d exec rofi -show run
+    bindsym $mod+space exec rofi -show drun
+    # bindsym $mod+shift+b exec ~/.local/bin/rofi-bluetooth
 
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -153,7 +168,7 @@ output * bg ~/Pictures/flatppuccin_4k_macchiato.png fill
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+ctrl+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -192,8 +207,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Touchpad gestures
-bindgesture swipe:right workspace next
-bindgesture swipe:left workspace prev
+# bindgesture swipe:right workspace next
+# bindgesture swipe:left workspace prev
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
@@ -219,6 +234,19 @@ bindgesture swipe:left workspace prev
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
 # Startup Applications
+exec blueman-applet &
 exec nm-applet &
-exec ~/.local/bin/i3-battery-popup &
-exec foot -s &
+# exec ~/.local/bin/i3-battery-popup &
+exec foot --server
+
+bar {
+    position top
+
+    status_command i3status
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}

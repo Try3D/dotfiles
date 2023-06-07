@@ -1,12 +1,12 @@
 # Alacritty
 window:
-  opacity: 0.9
+  opacity: 0.8
 
 # Font configuration
 font:
   normal:
     family: JetBrains Mono Nerd Font
-  size: 15.0
+  size: 16.0
 
 # TokyoNight Alacritty Colors
 colors:

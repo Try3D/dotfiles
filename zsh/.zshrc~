@@ -21,6 +21,7 @@ HISTFILE=~/.zsh_history
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 
+export PATH=/usr/lib/jellyfin/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/sumneko/bin
 export PATH=$PATH:$HOME/.local/node/bin
