@@ -11,3 +11,5 @@ require("gitsigns").setup({
         changedelete = { text = "~" },
     },
 })
+
+vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<CR>")

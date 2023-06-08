@@ -18,7 +18,6 @@ require("core.autocmd")
 
 require("lazy").setup({
     require("plugins.treesitter"),
-    require("plugins.lualine"),
     require("plugins.comment"),
     require("plugins.git"),
     require("plugins.telescope"),
@@ -31,6 +30,7 @@ require("lazy").setup({
     require("plugins.luasnip"),
     require("plugins.executor"),
     require("plugins.cmp"),
-    require("plugins.tokyonight"),
     require("plugins.debug"),
+    require("plugins.lualine"),
+    require("plugins.tokyonight"),
 }, {})

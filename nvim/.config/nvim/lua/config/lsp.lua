@@ -1,5 +1,17 @@
 require("mason").setup()
-require("fidget").setup({})
+require("fidget").setup()
+require("neodev").setup({
+    require("lspconfig").lua_ls.setup({
+        settings = {
+            Lua = {
+                workspace = { checkThirdParty = false },
+                telemetry = { enable = false },
+            },
+        },
+    }),
+})
+
+require("tokyonight").setup(nextnn)
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
@@ -36,19 +48,4 @@ require("lspconfig").pyright.setup({
 
 require("lspconfig").clangd.setup({
     capabilities = capabilities,
-})
-
-require("lspconfig").lua_ls.setup({
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-            library = vim.api.nvim_get_runtime_file("", true),
-        },
-        telemetry = {
-            enable = false,
-        },
-    },
 })
