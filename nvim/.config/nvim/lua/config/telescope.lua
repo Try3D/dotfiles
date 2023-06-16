@@ -17,6 +17,6 @@ vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags)
 vim.keymap.set("n", "<leader>fr", require("telescope.builtin").live_grep)
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics)
 
-vim.keymap.set("n", "<C-f>", require("telescope.builtin").git_files)
+vim.keymap.set("n", "<C-;>", require("telescope.builtin").git_files)
 vim.keymap.set("n", "<leader>fgc", require("telescope.builtin").git_commits)
 vim.keymap.set("n", "<leader>fgb", require("telescope.builtin").git_branches)

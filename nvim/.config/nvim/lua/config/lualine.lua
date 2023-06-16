@@ -3,11 +3,10 @@ require("lualine").setup({
         icons_enabled = true,
         component_separators = "",
         section_separators = "",
-        theme = "tokyonight",
     },
     sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_a = { { "mode", color = { gui = "bold" } } },
+        lualine_b = { { "branch", icon = "" }, "diff", "diagnostics" },
         lualine_c = { "filename" },
         lualine_x = { require("util").get_lsp() },
         lualine_y = { "filetype" },

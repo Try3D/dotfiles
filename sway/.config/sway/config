@@ -61,6 +61,7 @@ output * bg ~/Pictures/wallpapers/4.jpeg fill
    }
 
    input "type:keyboard" {
+       # xkb_file ~/.config/xkb/progcolemak.xkb
        xkb_file ~/.config/xkb/progcolemak.xkb
    }
 
@@ -236,17 +237,18 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 # Startup Applications
 exec blueman-applet &
 exec nm-applet &
-# exec ~/.local/bin/i3-battery-popup &
+exec ~/.local/bin/i3-battery-popup &
 exec foot --server
+exec_always killall waybar ; waybar -c .config/waybar/config
 
-bar {
-    position top
-
-    status_command i3status
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+# bar {
+#     position top
+#
+#     status_command i3status
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }

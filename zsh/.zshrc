@@ -25,6 +25,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/sumneko/bin
 export PATH=$PATH:$HOME/.local/node/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/zig/
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/go/bin
 

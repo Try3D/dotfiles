@@ -33,4 +33,6 @@ require("lazy").setup({
     require("plugins.debug"),
     require("plugins.lualine"),
     require("plugins.tokyonight"),
+    require("plugins.surround"),
+    require("plugins.debug"),
 }, {})

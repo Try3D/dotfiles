@@ -1,8 +1,9 @@
 require("formatter").setup({
     filetype = {
-        rust = { require("formatter.filetypes.rust").rustfmt },
-        lua = { require("formatter.filetypes.lua").stylua },
         c = { require("formatter.filetypes.c").clangformat },
+        lua = { require("formatter.filetypes.lua").stylua },
+        rust = { require("formatter.filetypes.rust").rustfmt },
+        ocaml = { require("formatter.filetypes.ocaml").ocamlformat },
         ["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
     },
 })

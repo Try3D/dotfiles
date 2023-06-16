@@ -12,4 +12,4 @@ require("gitsigns").setup({
     },
 })
 
-vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<CR>")
+vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>")

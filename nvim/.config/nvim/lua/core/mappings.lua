@@ -24,9 +24,7 @@ vim.keymap.set("n", "Y", 'y$')
 vim.keymap.set("n", "d!", 'Vd')
 vim.keymap.set("v", "<leader>p", '"_dP')
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
-
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>")
+vim.keymap.set({"n", "v"}, "<leader>d", [["+ygvd]])
 
 vim.keymap.set("i", "<left>", "<nop>")
 vim.keymap.set("i", "<right>", "<nop>")
