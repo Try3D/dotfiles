@@ -1,5 +1,5 @@
 return {
-    'simrat39/rust-tools.nvim',
+    "simrat39/rust-tools.nvim",
     config = function()
         require("config.rust")
     end,

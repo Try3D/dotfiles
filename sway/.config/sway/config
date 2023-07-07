@@ -27,7 +27,7 @@ focus_on_window_activation focus
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg ~/Pictures/wallpapers/4.jpeg fill
+output * bg /usr/share/backgrounds/Lunar-lobster-side_by_Gixo-dark.png fill
 # output transform 90
 #
 # Example configuration:
@@ -61,7 +61,7 @@ output * bg ~/Pictures/wallpapers/4.jpeg fill
    }
 
    input "type:keyboard" {
-       # xkb_file ~/.config/xkb/progcolemak.xkb
+       # xkb_file ~/.config/xkb/progqwerty.xkb
        xkb_file ~/.config/xkb/progcolemak.xkb
    }
 

@@ -1,6 +1,6 @@
 return {
     "kylechui/nvim-surround",
     config = function()
-        require("config.surround")
+        require("nvim-surround").setup()
     end,
 }

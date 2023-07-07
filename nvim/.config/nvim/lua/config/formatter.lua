@@ -4,7 +4,9 @@ require("formatter").setup({
         lua = { require("formatter.filetypes.lua").stylua },
         rust = { require("formatter.filetypes.rust").rustfmt },
         ocaml = { require("formatter.filetypes.ocaml").ocamlformat },
-        ["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
+        ["*"] = {
+            require("formatter.filetypes.any").remove_trailing_whitespace,
+        },
     },
 })
 

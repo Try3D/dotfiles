@@ -18,7 +18,10 @@ function M.get_lsp()
             return msg
         end,
         icon = "  LSP:",
-        color = { fg = require("tokyonight.colors").setup({ transform = true }).fg, gui = "bold" },
+        color = {
+            fg = require("tokyonight.colors").setup({ transform = true }).fg,
+            gui = "bold",
+        },
     }
 end
 

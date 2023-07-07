@@ -5,8 +5,8 @@ window:
 # Font configuration
 font:
   normal:
-    family: IBM PLEX Mono
-  size: 16.5
+    family: Go Mono Nerd Font
+  size: 17
 
 # TokyoNight Alacritty Colors
 colors:

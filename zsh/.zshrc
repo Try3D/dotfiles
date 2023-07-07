@@ -20,6 +20,7 @@ HISTFILE=~/.zsh_history
 # Paths
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
+export DOTNET_ROOT=$HOME/.dotnet
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/sumneko/bin
@@ -28,6 +29,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/zig/
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 
 # Keybindings
 bindkey -s '^t' "tmuxsessionizer\n"
