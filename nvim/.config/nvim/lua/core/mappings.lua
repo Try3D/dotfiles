@@ -12,8 +12,8 @@ vim.keymap.set("n", "<leader>e", "<C-w>j")
 vim.keymap.set("n", "<leader>i", "<C-w>k")
 vim.keymap.set("n", "<leader>o", "<C-w>l")
 
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>")
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>")
+vim.keymap.set("n", "<C-Up>", "<cmd>resize -2<cr>")
+vim.keymap.set("n", "<C-Down>", "<cmd>resize +2<cr>")
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
 
