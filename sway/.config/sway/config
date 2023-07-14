@@ -6,12 +6,6 @@ set $right o
 set $term footclient
 
 bindsym $mod+shift+b exec --no-startup-id ~/.local/bin/rofi-bluetooth
-bindsym Print exec grim -g "$(slurp)" - | wl-copy
-
-# Adjust Screen Brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
-
 
 bindsym $mod+Shift+l exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
@@ -27,7 +21,7 @@ focus_on_window_activation focus
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/Lunar-lobster-side_by_Gixo-dark.png fill
+output * bg /usr/share/backgrounds/f33/extras/dark-blue.png fill
 # output transform 90
 #
 # Example configuration:
@@ -235,20 +229,5 @@ bindsym $mod+r mode "resize"
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
 # Startup Applications
-exec blueman-applet &
-exec nm-applet &
 exec ~/.local/bin/i3-battery-popup &
-exec foot --server
-exec_always killall waybar ; waybar -c .config/waybar/config
-
-# bar {
-#     position top
-#
-#     status_command i3status
-#
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
+exec foot -s &
