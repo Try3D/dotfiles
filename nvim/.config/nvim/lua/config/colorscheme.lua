@@ -1,5 +1,5 @@
 require("util.theme").colormypencil("tokyonight")
 
-vim.keymap.set("n", "<leader>colt", function()
+vim.keymap.set("n", "hi", function()
     require("util.theme").colormypencil("tokyonight")
 end)

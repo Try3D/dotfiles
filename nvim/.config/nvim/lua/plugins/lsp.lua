@@ -10,8 +10,5 @@ return {
         end,
     },
 
-    {
-        "j-hui/fidget.nvim",
-        tag = "legacy",
-    },
+    { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 }

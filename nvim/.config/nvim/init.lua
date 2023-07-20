@@ -19,7 +19,7 @@ require("core.autocmd")
 require("lazy").setup({
     require("plugins.treesitter"),
     require("plugins.comment"),
-    -- require("plugins.git"),
+    require("plugins.git"),
     require("plugins.telescope"),
     require("plugins.lsp"),
     require("plugins.rust"),

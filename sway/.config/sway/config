@@ -21,7 +21,7 @@ focus_on_window_activation focus
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/f33/extras/dark-blue.png fill
+output * bg ~/Pictures/wallpaper.png fill
 # output transform 90
 #
 # Example configuration:
@@ -76,7 +76,6 @@ output * bg /usr/share/backgrounds/f33/extras/dark-blue.png fill
     # bindsym $mod+c exec rofi -show calc
     bindsym $mod+d exec rofi -show run
     bindsym $mod+space exec rofi -show drun
-    # bindsym $mod+shift+b exec ~/.local/bin/rofi-bluetooth
 
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -227,6 +226,8 @@ bindsym $mod+r mode "resize"
 # the trick, it's all in the `wordexp(3)`.
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 
 # Startup Applications
 exec ~/.local/bin/i3-battery-popup &
