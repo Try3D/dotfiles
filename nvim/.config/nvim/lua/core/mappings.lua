@@ -30,6 +30,3 @@ vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
 
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>")
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>")
-
-vim.keymap.set("n", "<leader>-", "<c-w>s")
-vim.keymap.set("n", "<leader>|", "<c-w>v")

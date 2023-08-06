@@ -5,8 +5,8 @@ window:
 # Font configuration
 font:
   normal:
-    family: Go Mono Nerd Font
-  size: 17
+    family: JetBrains Mono Nerd Font
+  size: 14
 
 # TokyoNight Alacritty Colors
 colors:

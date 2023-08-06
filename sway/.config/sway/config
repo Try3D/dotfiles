@@ -3,7 +3,7 @@ set $left n
 set $down e
 set $up i
 set $right o
-set $term footclient
+set $term alacritty
 
 bindsym $mod+shift+b exec --no-startup-id ~/.local/bin/rofi-bluetooth
 
@@ -49,7 +49,7 @@ output * bg ~/Pictures/wallpaper.png fill
 #
    input "type:touchpad" {
        dwt disabled
-       tap enabled
+       tap disabled
        natural_scroll disabled
        middle_emulation enabled
    }
@@ -74,9 +74,10 @@ output * bg ~/Pictures/wallpaper.png fill
 
     # Rofi
     # bindsym $mod+c exec rofi -show calc
-    bindsym $mod+d exec rofi -show run
-    bindsym $mod+space exec rofi -show drun
+    set $rofi_cmd rofi \
+        -terminal '$term'
 
+    bindsym $mod+space exec $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

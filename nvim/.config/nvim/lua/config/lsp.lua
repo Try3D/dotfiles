@@ -55,7 +55,3 @@ require("lspconfig").tsserver.setup({
 require("lspconfig").clangd.setup({
     capabilities = capabilities,
 })
-
-require("lspconfig").zls.setup({
-    capabilities = capabilities,
-})

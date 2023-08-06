@@ -13,6 +13,7 @@ vim.o.termguicolors = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 vim.wo.scrolloff = 8
+vim.wo.sidescrolloff = 5
 vim.o.breakindent = true
 vim.o.mouse = ""
 
