@@ -1,6 +1,6 @@
 {
     "position": "top",
-    "height": 5,
+    "height": 8,
     "spacing": 0,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],

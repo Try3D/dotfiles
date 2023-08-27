@@ -1,5 +1,7 @@
-require("util.theme").colormypencil("tokyonight")
+require("tokyonight").setup({
+    style = "night",
+    transparent = true,
+    theme = "tokyonight",
+})
 
-vim.keymap.set("n", "hi", function()
-    require("util.theme").colormypencil("tokyonight")
-end)
+vim.cmd.colorscheme("tokyonight")

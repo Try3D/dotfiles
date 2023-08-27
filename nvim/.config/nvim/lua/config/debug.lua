@@ -1,7 +1,6 @@
 local dap = require("dap")
 local dapui = require("dapui")
-
-local debugpy_path = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+local debugpy_path = vim.fn.getenv("HOME") .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 
 dapui.setup()
 
@@ -20,7 +19,6 @@ dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
-require("dap-go").setup()
 require("dap-python").setup(debugpy_path)
 
 dap.adapters.codelldb = {
@@ -50,4 +48,3 @@ dap.configurations.cpp = {
 }
 
 dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp

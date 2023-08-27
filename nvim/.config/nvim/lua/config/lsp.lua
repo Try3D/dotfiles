@@ -13,7 +13,7 @@ require("neodev").setup({
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
--- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
@@ -36,19 +36,7 @@ vim.keymap.set("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end)
 
-require("lspconfig").gopls.setup({
-    capabilities = capabilities,
-})
-
 require("lspconfig").pyright.setup({
-    capabilities = capabilities,
-})
-
-require("lspconfig").ocamllsp.setup({
-    capabilities = capabilities,
-})
-
-require("lspconfig").tsserver.setup({
     capabilities = capabilities,
 })
 

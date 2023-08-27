@@ -2,14 +2,9 @@ require("formatter").setup({
     filetype = {
         c = { require("formatter.filetypes.c").clangformat },
         lua = { require("formatter.filetypes.lua").stylua },
-        rust = { require("formatter.filetypes.rust").rustfmt },
-        ocaml = { require("formatter.filetypes.ocaml").ocamlformat },
-        json = { require("formatter.filetypes.json").prettier },
         python = { require("formatter.filetypes.python").black },
-        ["*"] = {
-            require("formatter.filetypes.any").remove_trailing_whitespace,
-        },
+        ["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
     },
 })
 
-vim.keymap.set({ "n", "v" }, "<leader><C-f>", "<cmd>Format<CR>")
+vim.keymap.set("n", "<leader><C-f>", "<cmd>Format<CR>")

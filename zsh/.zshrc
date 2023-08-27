@@ -37,9 +37,6 @@ source ~/.zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
 # Starship
 # eval "$(starship init zsh)"
 
-# opam configuration
-eval $(opam env)
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/try/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -54,4 +51,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
