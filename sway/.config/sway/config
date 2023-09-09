@@ -1,3 +1,5 @@
+for_window [title="Figure 1"] floating enable
+
 set $mod Mod1
 set $left n
 set $down e
@@ -21,7 +23,7 @@ focus_on_window_activation focus
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg $HOME/Pictures/wallpapers/Dracula/dracula_bg.png fill
+output * bg /home/try/Pictures/wallpapers/Anime/reach-for-the-stars-girl.jpg fill
 # output transform 90
 #
 # Example configuration:
@@ -55,8 +57,8 @@ output * bg $HOME/Pictures/wallpapers/Dracula/dracula_bg.png fill
    }
 
    input "type:keyboard" {
-       # xkb_layout us
-       # xkb_variant dvorak-r
+       xkb_layout us
+       xkb_variant dvorak-r
       xkb_file ~/.config/xkb/progcolemak.xkb
    }
 
