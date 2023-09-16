@@ -24,7 +24,7 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         config = function()
-            require("config.treesitter")
+            require("try.config.treesitter")
         end,
     },
 
@@ -36,26 +36,30 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
         config = function()
-            require("config.debug")
+            require("try.config.debug")
         end,
     },
 
     {
         "numToStr/Comment.nvim",
         config = function()
-            require("config.comment")
-        end,
-    },
-
-    {
-        "TimUntersberger/neogit",
-        config = function()
-            require("config.git")
+            require("try.config.comment")
         end,
     },
 
     {
         "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup({
+                signs = {
+                    add = { text = "+" },
+                    change = { text = "~" },
+                    delete = { text = "_" },
+                    topdelete = { text = "‾" },
+                    changedelete = { text = "~" },
+                },
+            })
+        end,
     },
 
     {
@@ -64,7 +68,7 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
         config = function()
-            require("config.telescope")
+            require("try.config.telescope")
         end,
     },
 
@@ -73,13 +77,6 @@ require("lazy").setup({
         build = "make",
         cond = function()
             return vim.fn.executable("make") == 1
-        end,
-    },
-
-    {
-        "try3d/formatter.nvim",
-        config = function()
-            require("config.formatter")
         end,
     },
 
@@ -96,14 +93,14 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
         config = function()
-            require("config.harpoon")
+            require("try.config.harpoon")
         end,
     },
 
     {
         "L3MON4D3/LuaSnip",
         config = function()
-            require("config.luasnip")
+            require("try.config.luasnip")
         end,
     },
 
@@ -113,7 +110,7 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim",
         },
         config = function()
-            require("config.executor")
+            require("try.config.executor")
         end,
     },
 
@@ -127,7 +124,7 @@ require("lazy").setup({
             "onsails/lspkind.nvim",
         },
         config = function()
-            require("config.cmp")
+            require("try.config.cmp")
         end,
     },
 
@@ -137,7 +134,7 @@ require("lazy").setup({
             "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            require("config.lualine")
+            require("try.config.lualine")
         end,
     },
 
@@ -151,7 +148,7 @@ require("lazy").setup({
     {
         "folke/tokyonight.nvim",
         config = function()
-            require("config.colorscheme")
+            require("try.config.colorscheme")
         end,
     },
     {
@@ -161,7 +158,7 @@ require("lazy").setup({
             "williamboman/mason.nvim",
         },
         config = function()
-            require("config.lsp")
+            require("try.config.lsp")
         end,
     },
 
@@ -172,7 +169,14 @@ require("lazy").setup({
             "williamboman/mason.nvim",
         },
         config = function()
-            require("config.lsp")
+            require("try.config.lsp")
+        end,
+    },
+
+    {
+        "creativenull/efmls-configs-nvim",
+        config = function()
+            require("try.config.efm")
         end,
     },
 }, {})

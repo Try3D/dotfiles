@@ -34,7 +34,7 @@ dap.adapters.codelldb = {
     },
 }
 
-dap.configurations.cpp = {
+dap.configurations.c = {
     {
         name = "Launch file",
         type = "codelldb",
@@ -46,5 +46,3 @@ dap.configurations.cpp = {
         stopOnEntry = false,
     },
 }
-
-dap.configurations.c = dap.configurations.cpp

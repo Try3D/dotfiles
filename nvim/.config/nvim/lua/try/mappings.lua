@@ -4,7 +4,7 @@ vim.keymap.set("v", "<C-e>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-i>", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<leader>pa", "<cmd>Explor<CR>")
-vim.keymap.set("n", "<leader>pv", "<cmd>Vexplor<CR>")
+vim.keymap.set("n", "<leader>pl", "<cmd>Lexplor<CR>")
 vim.keymap.set("n", "<leader>ps", "<cmd>Sexplor<CR>")
 
 vim.keymap.set("n", "<leader>n", "<C-w>h")

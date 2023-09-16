@@ -36,7 +36,15 @@ vim.keymap.set("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end)
 
+vim.keymap.set("n", "<leader><c-f>", function()
+    vim.lsp.buf.format({ async = true })
+end, opts)
+
 require("lspconfig").pyright.setup({
+    capabilities = capabilities,
+})
+
+require("lspconfig").tsserver.setup({
     capabilities = capabilities,
 })
 
