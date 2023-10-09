@@ -22,6 +22,20 @@ require("lazy").setup({
     },
 
     {
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup()
+        end,
+    },
+
+    {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require("try.config.treesitter")
@@ -82,9 +96,13 @@ require("lazy").setup({
 
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("indent_blankline").setup({ char = "┊" })
-        end,
+        main = "ibl",
+        opts = {
+            indent = { char = { "┊" } },
+            scope = {
+                enabled = false
+            }
+        },
     },
 
     {
