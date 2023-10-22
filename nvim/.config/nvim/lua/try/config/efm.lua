@@ -1,12 +1,14 @@
 local stylua = require("efmls-configs.formatters.stylua")
 local autopep8 = require("efmls-configs.formatters.autopep8")
 local prettier = require("efmls-configs.formatters.prettier")
+local rustfmt = require("efmls-configs.formatters.rustfmt")
 
 local languages = {
     python = { autopep8 },
     lua = { stylua },
     javascript = { prettier },
     html = { prettier },
+    rust = { rustfmt },
 }
 
 local efmls_config = {

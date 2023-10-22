@@ -12,7 +12,7 @@ vim.wo.signcolumn = "yes"
 vim.o.termguicolors = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
-vim.wo.scrolloff = 8
+vim.o.scrolloff = 8
 vim.o.breakindent = true
 vim.o.mouse = ""
 

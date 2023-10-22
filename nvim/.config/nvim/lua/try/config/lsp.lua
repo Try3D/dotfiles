@@ -48,6 +48,23 @@ require("lspconfig").tsserver.setup({
     capabilities = capabilities,
 })
 
+require("lspconfig").gopls.setup({
+    capabilities = capabilities,
+})
+
+require("rust-tools").setup({
+    server = {
+        standalone = true,
+    },
+    dap = {
+        adapter = {
+            type = "executable",
+            command = "lldb-vscode",
+            name = "rt_lldb",
+        },
+    },
+})
+
 require("lspconfig").clangd.setup({
     capabilities = capabilities,
 })

@@ -15,6 +15,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        "mbbill/undotree",
+    },
+
+    {
         "windwp/nvim-autopairs",
         config = function()
             require("nvim-autopairs").setup()
@@ -22,9 +26,9 @@ require("lazy").setup({
     },
 
     {
-        "norcalli/nvim-colorizer.lua",
+        "uga-rosa/ccc.nvim",
         config = function()
-            require("colorizer").setup()
+            require("try.config.ccc")
         end,
     },
 
@@ -37,6 +41,9 @@ require("lazy").setup({
 
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-context"
+        },
         config = function()
             require("try.config.treesitter")
         end,
@@ -140,6 +147,7 @@ require("lazy").setup({
             "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
             "onsails/lspkind.nvim",
+            "simrat39/rust-tools.nvim",
         },
         config = function()
             require("try.config.cmp")
