@@ -19,10 +19,16 @@ require("lazy").setup({
     },
 
     {
-        "windwp/nvim-autopairs",
+        "windwp/nvim-ts-autotag",
         config = function()
-            require("nvim-autopairs").setup()
+            require("nvim-ts-autotag").setup()
         end,
+    },
+
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
     },
 
     {
@@ -33,16 +39,9 @@ require("lazy").setup({
     },
 
     {
-        "windwp/nvim-ts-autotag",
-        config = function()
-            require("nvim-ts-autotag").setup()
-        end,
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
-            "nvim-treesitter/nvim-treesitter-context"
+            "nvim-treesitter/nvim-treesitter-context",
         },
         config = function()
             require("try.config.treesitter")
@@ -84,6 +83,10 @@ require("lazy").setup({
     },
 
     {
+        "sindrets/diffview.nvim",
+    },
+
+    {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -107,8 +110,8 @@ require("lazy").setup({
         opts = {
             indent = { char = { "┊" } },
             scope = {
-                enabled = false
-            }
+                enabled = false,
+            },
         },
     },
 
@@ -177,21 +180,10 @@ require("lazy").setup({
             require("try.config.colorscheme")
         end,
     },
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "folke/neodev.nvim",
-            "williamboman/mason.nvim",
-        },
-        config = function()
-            require("try.config.lsp")
-        end,
-    },
 
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            "folke/neodev.nvim",
             "williamboman/mason.nvim",
         },
         config = function()

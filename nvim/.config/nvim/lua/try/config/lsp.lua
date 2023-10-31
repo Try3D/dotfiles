@@ -1,16 +1,5 @@
 require("mason").setup()
 
-require("neodev").setup({
-    require("lspconfig").lua_ls.setup({
-        settings = {
-            Lua = {
-                workspace = { checkThirdParty = false },
-                telemetry = { enable = false },
-            },
-        },
-    }),
-})
-
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
@@ -40,9 +29,9 @@ vim.keymap.set("n", "<leader><c-f>", function()
     vim.lsp.buf.format({ async = true })
 end, opts)
 
-require("lspconfig").pyright.setup({
-    capabilities = capabilities,
-})
+-- require("lspconfig").pyright.setup({
+--     capabilities = capabilities,
+-- })
 
 require("lspconfig").tsserver.setup({
     capabilities = capabilities,
@@ -50,6 +39,17 @@ require("lspconfig").tsserver.setup({
 
 require("lspconfig").gopls.setup({
     capabilities = capabilities,
+})
+
+require("lspconfig").lua_ls.setup({
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            completion = {
+                callSnippet = "Replace",
+            },
+        },
+    },
 })
 
 require("rust-tools").setup({
