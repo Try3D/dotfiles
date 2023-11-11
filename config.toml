@@ -1,0 +1,53 @@
+editor = "nvim"
+
+[alacritty]
+location = "$HOME/.config/alacritty"
+main = "alacritty.yml"
+
+[bin]
+location = "$HOME/bin"
+main = "tmuxsessionizer"
+
+[foot]
+location = "$HOME/.config/foot"
+main = "foot.ini"
+
+[i3]
+location = "$HOME/.config/i3"
+main = "config"
+
+[keyboard]
+location = "$HOME/.config/xkb"
+main = "programmers-colemak.xkb"
+
+[nvim]
+location = "$HOME/.config/nvim"
+main = "init.lua"
+
+[picom]
+location = "$HOME/.config/picom"
+main = "picom.conf"
+
+[polybar]
+location = "$HOME/.config/polybar"
+main = "config.ini"
+
+[starship]
+location = [{src = "starship.toml", dest = "$HOME/.config/starship.toml"}]
+main = "starship.toml"
+
+[tmux]
+location = "$HOME/.config/tmux"
+main = "tmux.conf"
+
+[sway]
+location = "$HOME/.config/sway"
+main = "config"
+
+[waybar]
+location = "$HOME/.config/waybar"
+main = "config"
+
+[zsh]
+location = [{src = "zshrc", dest = "$HOME/.zshrc" }, {src = "p10k.zsh", dest = "$HOME/.p10k.zsh"}]
+main = "zshrc"

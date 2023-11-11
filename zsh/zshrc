@@ -5,13 +5,6 @@
 #     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-# Aliases
-alias v='nvim'
-alias ls='exa --icons'
-alias search='fzf --preview "bat --style=numbers --color=always --line-range :500 {}"'
-alias open='xdg-open'
-alias la='ls -la'
-
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -21,17 +14,17 @@ HISTFILE=~/.zsh_history
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 
-export PATH=/usr/lib/jellyfin/bin
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/.local/sumneko/bin
-export PATH=$PATH:$HOME/.local/node/bin
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/anaconda3/bin
+export PATH=$PATH:$HOME/.bun/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.config/emacs/bin
 
 # Keybindings
 bindkey -s '^t' "tmuxsessionizer\n"
-bindkey -s '^w' "gotoconf\n"
+bindkey -s '^w' "cd ~/.dotfiles;  ds edit \$\(ds edit \| fzf\); cd -\n"
 bindkey "\e[1;3C" forward-word
 bindkey "\e[1;3D" backward-word
 
@@ -46,5 +39,9 @@ source ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 # Starship
 eval "$(starship init zsh)"
 
-# opam configuration
-eval $(opam env)
+# bun completions
+[ -s "/home/try/.bun/_bun" ] && source "/home/try/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
