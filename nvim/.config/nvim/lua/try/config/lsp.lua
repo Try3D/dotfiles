@@ -50,24 +50,6 @@ require("lspconfig").pyright.setup({
     on_attach = on_attach,
 })
 
-require("lspconfig").gopls.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-
-require("rust-tools").setup({
-    server = {
-        standalone = true,
-    },
-    dap = {
-        adapter = {
-            type = "executable",
-            command = "lldb-vscode",
-            name = "rt_lldb",
-        },
-    },
-})
-
 require("lspconfig").clangd.setup({
     capabilities = capabilities,
     on_attach = on_attach,

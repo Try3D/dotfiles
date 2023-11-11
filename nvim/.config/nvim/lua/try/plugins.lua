@@ -156,7 +156,6 @@ require("lazy").setup({
             "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
             "onsails/lspkind.nvim",
-            "simrat39/rust-tools.nvim",
         },
         config = function()
             require("try.config.cmp")
