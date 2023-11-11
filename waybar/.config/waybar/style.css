@@ -1,6 +1,6 @@
 * {
     font-family: JetBrains Mono Nerd Font;
-    font-size: 24px;
+    font-size: 17px;
 }
 
 window#waybar {
@@ -9,7 +9,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 2px;
     background-color: #24273a;
     color: #b7bdf8;
     border-radius: 0;

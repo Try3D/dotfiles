@@ -20,6 +20,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/anaconda3/bin
 export PATH=$PATH:$HOME/.bun/bin
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.config/emacs/bin
 
 # Keybindings
 bindkey -s '^t' "tmuxsessionizer\n"

@@ -34,7 +34,12 @@ require("lazy").setup({
     {
         "uga-rosa/ccc.nvim",
         config = function()
-            require("try.config.ccc")
+            require("ccc").setup({
+                highlighter = {
+                    auto_enable = true,
+                    lsp = true,
+                },
+            })
         end,
     },
 
@@ -90,6 +95,7 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "debugloop/telescope-undo.nvim",
         },
         config = function()
             require("try.config.telescope")

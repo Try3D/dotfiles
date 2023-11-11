@@ -1,13 +1,8 @@
 local ls = require("luasnip")
 
-local snip = ls.snippet
-local node = ls.snippet_node
-local text = ls.text_node
-local snips = ls.snippets
-local insert = ls.insert_node
-local func = ls.function_node
-local choice = ls.choice_node
-local dynamicn = ls.dynamic_node
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
 
 ls.config.set_config({
     history = true,
@@ -32,3 +27,30 @@ vim.keymap.set("i", "<c-l>", function()
         ls.change_choice(1)
     end
 end)
+
+ls.add_snippets(nil, {
+    c = {
+        s("mn", {
+            t({ "int main(void) {", "    " }),
+            i(1),
+            t({ "", "}" }),
+            i(0),
+        }),
+
+        s("in", {
+            t("#include <"),
+            i(1),
+            t(".h>"),
+        }),
+    },
+
+    html = {
+        s("dt", {
+            t({ "<!DOCTYPE html>", "", "<html>", "    <head>", "        <title>" }),
+            i(1),
+            t({ "</title>", "    </head>", "    <body>", "        " }),
+            i(2),
+            t({ "", "    </body>", "</html>" }),
+        }),
+    },
+})
