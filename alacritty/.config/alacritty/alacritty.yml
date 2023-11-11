@@ -5,7 +5,7 @@ window:
 # Font configuration
 font:
     normal:
-      family: JetBrains Mono Nerd Font
+        family: Ubuntu mono Nerd Font
     size: 20
 
 # TokyoNight Alacritty Colors

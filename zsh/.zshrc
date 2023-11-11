@@ -13,13 +13,14 @@ HISTFILE=~/.zsh_history
 # Paths
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
-export DOTNET_ROOT=$HOME/.dotnet
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/anaconda3/bin
 export PATH=$PATH:$HOME/.bun/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.config/emacs/bin
 
 # Keybindings
 bindkey -s '^t' "tmuxsessionizer\n"

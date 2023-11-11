@@ -26,4 +26,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
 
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>")
-vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>")
+
+vim.keymap.set("n", "<c-]>", "<cmd>cnext<cr>")
+vim.keymap.set("n", "<c-[>", "<cmd>cprev<cr>")

@@ -46,3 +46,5 @@ dap.configurations.c = {
         stopOnEntry = false,
     },
 }
+
+dap.configurations.rust = dap.configurations.c

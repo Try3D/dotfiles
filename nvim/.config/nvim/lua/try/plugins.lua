@@ -15,17 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup()
-        end,
-    },
-
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
+        "mbbill/undotree",
     },
 
     {
@@ -36,7 +26,28 @@ require("lazy").setup({
     },
 
     {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
+
+    {
+        "uga-rosa/ccc.nvim",
+        config = function()
+            require("ccc").setup({
+                highlighter = {
+                    auto_enable = true,
+                    lsp = true,
+                },
+            })
+        end,
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-context",
+        },
         config = function()
             require("try.config.treesitter")
         end,
@@ -77,9 +88,14 @@ require("lazy").setup({
     },
 
     {
+        "sindrets/diffview.nvim",
+    },
+
+    {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "debugloop/telescope-undo.nvim",
         },
         config = function()
             require("try.config.telescope")
@@ -100,8 +116,8 @@ require("lazy").setup({
         opts = {
             indent = { char = { "┊" } },
             scope = {
-                enabled = false
-            }
+                enabled = false,
+            },
         },
     },
 
@@ -169,21 +185,10 @@ require("lazy").setup({
             require("try.config.colorscheme")
         end,
     },
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "folke/neodev.nvim",
-            "williamboman/mason.nvim",
-        },
-        config = function()
-            require("try.config.lsp")
-        end,
-    },
 
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            "folke/neodev.nvim",
             "williamboman/mason.nvim",
         },
         config = function()
