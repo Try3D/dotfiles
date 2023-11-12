@@ -7,7 +7,7 @@ set $up i
 set $right o
 set $term footclient
 
-bindsym $mod+shift+b exec --no-startup-id ~/.local/bin/rofi-bluetooth
+bindsym $mod+shift+b exec --no-startup-id ~/bin/rofi-bluetooth
 
 bindsym $mod+Shift+l exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
@@ -234,5 +234,5 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 
 # Startup Applications
-exec ~/.local/bin/i3-battery-popup &
+exec ~/bin/i3-battery-popup &
 exec foot -s &

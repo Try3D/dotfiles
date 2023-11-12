@@ -1,5 +1,11 @@
 editor = "nvim"
 
+[bootstrap]
+linux.fedora = ["sudo dnf upgrade"]
+
+[update]
+linux.fedora = ["sudo dnf upgrade"]
+
 [alacritty]
 location = "$HOME/.config/alacritty"
 main = "alacritty.yml"
