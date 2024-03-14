@@ -1,5 +1,5 @@
 require("executor").setup({
-    use_split = false,
+  use_split = false,
 })
 
 vim.keymap.set("n", "<C-s>", "<cmd>ExecutorRun<CR>")

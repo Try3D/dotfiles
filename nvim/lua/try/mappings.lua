@@ -20,13 +20,17 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
 vim.keymap.set("n", "[b", "<cmd>bprev<CR>")
 vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
 
-vim.keymap.set("v", "<leader>p", '"_dP')
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
-
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>")
-vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>")
 
+vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>")
 vim.keymap.set("n", "<c-]>", "<cmd>cnext<cr>")
 vim.keymap.set("n", "<c-[>", "<cmd>cprev<cr>")
+
+vim.keymap.set("n", "X", "dd")
+
+vim.keymap.set("n", "dd", "<nop>")
+vim.keymap.set("n", "yy", "<nop>")
+vim.keymap.set("n", ">>", "<nop>")
+vim.keymap.set("n", "<<", "<nop>")

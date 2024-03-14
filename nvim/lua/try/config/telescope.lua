@@ -1,19 +1,21 @@
 require("telescope").setup({
-    defaults = {
-        mappings = {
-            i = {
-                ["<esc>"] = require("telescope.actions").close,
-                ["<C-q>"] = require("telescope.actions").send_to_qflist,
-            },
-        },
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = require("telescope.actions").close,
+        ["<C-q>"] = require("telescope.actions").send_to_qflist,
+      },
     },
-    extensions = {
-        undo = {}
-    }
+  },
+  extensions = {
+    undo = {},
+  },
 })
 
 pcall(require("telescope").load_extension, "fzf")
+
 require("telescope").load_extension("undo")
+-- require("telescope").load_extension("flutter")
 
 vim.keymap.set("n", "<C-p>", require("telescope.builtin").find_files)
 vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers)

@@ -1,77 +1,101 @@
 {
-    "position": "top",
-    "height": 8,
-    "spacing": 0,
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-center": [],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
-
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        "icon-size": 17,
-        "spacing": 1
-    },
-    "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	"format": "{: %Y-%m-%d  %H:%M}",
-    },
-    "cpu": {
-        "format": "{usage}% 󰍹 ",
-    },
-    "memory": {
-        "format": "{}% 󰍛"
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 󰂈",
-        "format-plugged": "{capacity}% 󰂄",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["󰂃", "󰁻", "󰁽", "󰁿", "󰂁"]
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%)  ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈀 ",
-        "tooltip-format": "{ifname} via {gwaddr}  ",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": "Disconnected ⚠ ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "󰋋 ",
-            "headset": "󰋋 ",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-        "escape": true,
+  "position": "top",
+  "modules-left": [
+    "image",
+    "sway/workspaces",
+    "custom/line",
+    "sway/mode",
+    "sway/window"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "custom/line",
+    "temperature",
+    "custom/line",
+    "pulseaudio",
+    "custom/line",
+    "network",
+    "custom/line",
+    "cpu",
+    "custom/line",
+    "memory",
+    "custom/line",
+    "battery",
+    "custom/line",
+    "clock",
+    "custom/line",
+    "idle_inhibitor",
+    "custom/line",
+    "tray"
+  ],
+  "custom/line": {
+    "format": "|",
+    "tooltip": false
+  },
+  "sway/workspaces": {
+    "disable-scroll": true
+  },
+  "sway/mode": {
+    "format": " <span>{}</span> "
+  },
+  "idle_inhibitor": {
+    "format": " {icon} ",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
     }
+  },
+  "temperature": {
+    "format": " {temperatureC}°C  "
+  },
+  "tray": {
+    "spacing": 3
+  },
+  "clock": {
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "format": " {:  %Y-%m-%d  󰥔  %H:%M}",
+    "interval": 1
+  },
+  "cpu": {
+    "format": " {usage}% 󰍹  "
+  },
+  "memory": {
+    "format": " {}% 󰍛 "
+  },
+  "battery": {
+    "interval": 1,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": " {capacity}% {icon} ",
+    "format-charging": " {capacity}% 󰂈 ",
+    "format-plugged": " {capacity}% 󰂈 ",
+    "format-alt": " {time} {icon} ",
+    "format-icons": [
+      "󰂃",
+      "󰁻",
+      "󰁽",
+      "󰁿",
+      "󰂁"
+    ]
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)   ",
+    "format-ethernet": " {ipaddr}/{cidr} 󰈀  ",
+    "tooltip-format": " {ifname} via {gwaddr}  ",
+    "format-linked": " {ifname} (No IP)  ",
+    "format-disconnected": " Disconnected ⚠ ",
+    "format-alt": " {ifname}: {ipaddr}/{cidr} "
+  },
+  "pulseaudio": {
+    "format": " {volume}% 󰋋 ",
+    "format-bluetooth": " {volume}% 󰋋  ",
+    "format-bluetooth-muted": " 0% 󰟎  ",
+    "format-muted": " 0% 󰟎 ",
+    "format-source": " {volume}%  ",
+    "format-source-muted": "  ",
+    "on-click": "pavucontrol"
+  }
 }
