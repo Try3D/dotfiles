@@ -1,0 +1,29 @@
+let mapleader=" "
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smartindent
+set expandtab
+
+set nu
+set rnu
+
+set termguicolors
+set nowrap
+set colorcolumn=80
+set breakindent
+set scrolloff=10
+
+set updatetime=50
+set timeout
+set timeoutlen=50
+
+set noswapfile
+set nobackup
+set undofile
+set undodir=$HOME/.config/undodir/vim
+
+nnoremap X dd
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv

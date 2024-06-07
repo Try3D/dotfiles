@@ -4,11 +4,19 @@ local luasnip = require("luasnip")
 
 luasnip.config.setup()
 
+require("lspkind").init({
+  symbol_map = {
+    -- Copilot = "",
+  },
+})
+
 local menu = {
+  -- copilot = "[CP]",
   path = "[PATH]",
   nvim_lsp = "[LSP]",
   luasnip = "[SNIP]",
   buffer = "[Buf]",
+  vim_dadbod_completion = "[DB]",
 }
 
 cmp.setup({
@@ -40,6 +48,7 @@ cmp.setup({
   }),
 
   sources = {
+    -- { name = "copilot" },
     { name = "path" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
@@ -48,5 +57,12 @@ cmp.setup({
 
   experimental = {
     ghost_text = true,
+  },
+})
+
+cmp.setup.filetype({ "sql" }, {
+  sources = {
+    { name = "vim-dadbod-completion" },
+    { name = "buffer" },
   },
 })

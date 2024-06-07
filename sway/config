@@ -1,16 +1,14 @@
-for_window [title="Figure 1"] floating enable
+set $mod Mod1
+set $left n
+set $down e
+set $up i
+set $right o
+set $term footclient
 
-set {
-  $mod Mod1
-  $left n
-  $down e
-  $up i
-  $right o
-  $term alacritty
+bindsym {
+  $mod+Shift+l exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+  $mod+ctrl+shift+space exec awk -i inplace 'NR==65 {if ($0 ~ /^ *#/) sub(/^ *#/, ""); else $0 = "#" $0} 1' ~/.config/sway/config ; reload                                        }
 }
-
-bindsym $mod+Shift+l exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-bindsym $mod+ctrl+shift+space exec awk -i inplace 'NR==61 {if ($0 ~ /^ *#/) sub(/^ *#/, ""); else $0 = "#" $0} 1' ~/.config/sway/config ; reload
 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -21,45 +19,30 @@ default_border pixel 1
 focus_on_window_activation focus
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/f33/default/f33-03-dusk.png fill
-#
-# Example configuration:
-#
-# output HDMI-A-1 resolution 1920x1080 position 1920,0 transform 90
-#
+# output * bg /usr/share/backgrounds/f33/default/f33-03-dusk.png fill
+output * bg /home/try/Pictures/backgrounds/tokyonight_goose.png fill
+
+### Example configuration:
+output HDMI-A-1 resolution 1920x1080 position 1920,0 transform 90
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-#
-# Example configuration:
-#
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-    input "type:touchpad" {
-        dwt disabled
-        tap enabled
-        natural_scroll disabled
-        middle_emulation enabled
-    }
+input "type:touchpad" {
+    dwt disabled
+    tap enabled
+    natural_scroll disabled
+    middle_emulation enabled
+}
 
-    input "type:keyboard" {
-        xkb_layout us
-        xkb_file ~/.config/xkb/programmers-colemak.xkb
-    }
+input "type:keyboard" {
+    xkb_file ~/.config/xkb/programmers-colemak.xkb
+}
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -68,117 +51,117 @@ exec swayidle -w \
 
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
+# Start a terminal
+bindsym $mod+Return exec $term
 
-    # Kill focused window
-    bindsym $mod+Shift+q kill
+# Kill focused window
+bindsym $mod+Shift+q kill
 
-    # Rofi
-    # bindsym $mod+c exec rofi -show calc
-    set $rofi_cmd rofi \
-        -terminal '$term' \
-        -show-icons
-    bindsym $mod+slash exec rofi -show window
+# Rofi
+# bindsym $mod+c exec rofi -show calc
+set $rofi_cmd rofi \
+    -terminal '$term' \
+    -show-icons
+bindsym $mod+slash exec rofi -show window
 
-    bindsym $mod+space exec $rofi_cmd -show combi -combi-modes drun#run -modes combi
+bindsym $mod+space exec $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+r reload
+# Reload the configuration file
+bindsym $mod+Shift+r reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+y exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+y exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    # bindsym $mod+Left focus left
-    # bindsym $mod+Down focus down
-    # bindsym $mod+Up focus up
-    # bindsym $mod+Right focus right
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    # bindsym $mod+Shift+Left move left
-    # bindsym $mod+Shift+Down move down
-    # bindsym $mod+Shift+Up move up
-    # bindsym $mod+Shift+Right move right
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+exclam workspace number 1
-    bindsym $mod+bracketleft workspace number 2
-    bindsym $mod+braceleft workspace number 3
-    bindsym $mod+parenleft workspace number 4
-    bindsym $mod+percent workspace number 5
-    bindsym $mod+numbersign workspace number 6
-    bindsym $mod+parenright workspace number 7
-    bindsym $mod+braceright workspace number 8
-    bindsym $mod+bracketright workspace number 9
-    bindsym $mod+asterisk workspace number 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+exclam move container to workspace number 1
-    bindsym $mod+Shift+bracketleft move container to workspace number 2
-    bindsym $mod+Shift+braceleft move container to workspace number 3
-    bindsym $mod+Shift+parenleft move container to workspace number 4
-    bindsym $mod+Shift+percent move container to workspace number 5
-    bindsym $mod+Shift+numbersign move container to workspace number 6
-    bindsym $mod+Shift+parenright move container to workspace number 7
-    bindsym $mod+Shift+braceright move container to workspace number 8
-    bindsym $mod+Shift+bracketright move container to workspace number 9
-    bindsym $mod+Shift+asterisk move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Switch to workspace
+bindsym $mod+exclam workspace number 1
+bindsym $mod+bracketleft workspace number 2
+bindsym $mod+braceleft workspace number 3
+bindsym $mod+parenleft workspace number 4
+bindsym $mod+percent workspace number 5
+bindsym $mod+numbersign workspace number 6
+bindsym $mod+parenright workspace number 7
+bindsym $mod+braceright workspace number 8
+bindsym $mod+bracketright workspace number 9
+bindsym $mod+asterisk workspace number 10
+# Move focused container to workspace
+bindsym $mod+Shift+exclam move container to workspace number 1
+bindsym $mod+Shift+bracketleft move container to workspace number 2
+bindsym $mod+Shift+braceleft move container to workspace number 3
+bindsym $mod+Shift+parenleft move container to workspace number 4
+bindsym $mod+Shift+percent move container to workspace number 5
+bindsym $mod+Shift+numbersign move container to workspace number 6
+bindsym $mod+Shift+parenright move container to workspace number 7
+bindsym $mod+Shift+braceright move container to workspace number 8
+bindsym $mod+Shift+bracketright move container to workspace number 9
+bindsym $mod+Shift+asterisk move container to workspace number 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+t layout toggle split
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+t layout toggle split
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+ctrl+space focus mode_toggle
+# Swap focus between the tiling area and the floating area
+bindsym $mod+ctrl+space focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-    bindsym $mod+shift+a focus child
+# Move focus to the parent container
+bindsym $mod+a focus parent
+bindsym $mod+shift+a focus child
 
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
@@ -187,16 +170,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 40px
+    bindsym $down resize grow height 40px
+    bindsym $up resize shrink height 40px
+    bindsym $right resize grow width 40px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width 40px
+    bindsym Down resize grow height 40px
+    bindsym Up resize shrink height 40px
+    bindsym Right resize grow width 40px
 
     # Return to default mode
     bindsym Return mode "default"
@@ -205,10 +188,14 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Window rules
+for_window [urgent="latest"] focus
+for_window [title="Figure 1"] floating enable
+
 # Touchpad gestures
 # bindgesture swipe:right workspace next
 # bindgesture swipe:left workspace prev
-
+#
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
 #  - /etc/sway/config.d
@@ -233,15 +220,20 @@ bindsym $mod+r mode "resize"
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
 # Keybinds
-bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+shift+b exec --no-startup-id ~/bin/rofi-bluetooth
+bindsym {
+  $mod+p exec grim -g "$(slurp)" - | wl-copy
+  $mod+shift+b exec --no-startup-id ~/bin/rofi-bluetooth
+}
 
 # Startup
 exec {
   ~/Discord/Discord &
   ~/bin/i3-battery-popup &
+  foot --server &
+  wlsunset -L 80.2705 -l 13.0843 -t 4500 -T 6500
 }
 
+# Execute always
 exec_always {
   gsettings set org.gnome.desktop.interface gtk-theme 'Qogir-Dark'
   gsettings set org.gnome.desktop.interface gtk-color-theme 'Qogir-Dark'
@@ -251,3 +243,30 @@ exec_always {
   gsettings set org.gnome.desktop.interface font-name 'Zed Sans 16px'
   gsettings set org.gnome.desktop.interface monospace-font-name 'Zed Mono 16px'
 }
+
+    set $light #ebdbb2
+    set $dark #3c3836
+    set $focused #5c5856
+    set $inactive #282828
+    set $unfocused #282828
+    set $urgent #b8bb26
+    set $urgent #b8bb26
+    set $green #a9b665
+
+    ### Colors (see man 5 sway)
+    # border - border around titlebar
+    # bg - titlebar background
+    # text - text on titlebar
+    # indicator - shown where new window will open
+    # child_border - border around the window
+    # class         border  bg          text        indicator   child_border
+    # client.focused          $focused    $focused    $light      $green    $focused
+    # client.focused_inactive $inactive   $inactive   $light      $green   $inactive
+    # client.unfocused        $unfocused  $unfocused  $light      $green  $unfocused
+    # client.urgent           $urgent     $urgent     $light      $green     $urgent
+
+    # class                 border    bg        text      indicator child_border
+    client.focused          #7aa2f7   #414868   #c0caf5   #9ece6a   #7aa2f7
+    client.focused_inactive #7aa2f7   #414868   #c0caf5   #9ece6a   #7aa2f7
+    client.unfocused        #414868   #24283b   #a9b1d6   #9ece6a   #414868
+    client.urgent           #e0af68   #e0af68   #1d202f   #9ece6a   #e0af68

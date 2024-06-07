@@ -15,7 +15,6 @@ require("telescope").setup({
 pcall(require("telescope").load_extension, "fzf")
 
 require("telescope").load_extension("undo")
--- require("telescope").load_extension("flutter")
 
 vim.keymap.set("n", "<C-p>", require("telescope.builtin").find_files)
 vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers)

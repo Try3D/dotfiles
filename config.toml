@@ -2,12 +2,24 @@ editor = "/usr/bin/env nvim"
 
 [bootstrap]
 linux.fedora = [
-    "sudo dnf upgrade",
+  "sudo dnf upgrade --refresh -y",
+  "sudo dnf check",
+  "sudo dnf autoremove",
+  "sudo fwupdmgr get-devices",
+  "sudo fwupdmgr refresh --force",
+  "sudo fwupdmgr get-updates",
+  "sudo fwupdmgr update",
+  "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo",
+  "flatpak update -y",
+  "flatpak install flathub org.libreoffice.LibreOffice com.spotify.Client com.discordapp.Discord -y",
+  "sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig",
+  "sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm",
 ]
 
 [update]
 linux.fedora = [
-    "sudo dnf upgrade",
+  "sudo dnf upgrade --refresh -y",
+  "flatpak update -y"
 ]
 
 [alacritty]
@@ -54,9 +66,13 @@ main = "tmux.conf"
 location = "$HOME/.config/sway"
 main = "config"
 
+[vim]
+location = [{src="vimrc", dest="$HOME/.vimrc"}]
+main = "vimrc"
+
 [waybar]
 location = "$HOME/.config/waybar"
-main = "config"
+main = "config.jsonc"
 
 [zsh]
 location = [{src = "zshrc", dest = "$HOME/.zshrc" }]

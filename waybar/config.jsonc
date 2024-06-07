@@ -1,7 +1,6 @@
 {
   "position": "top",
   "modules-left": [
-    "image",
     "sway/workspaces",
     "custom/line",
     "sway/mode",
@@ -36,13 +35,14 @@
     "disable-scroll": true
   },
   "sway/mode": {
-    "format": " <span>{}</span> "
+    "format": "<span>{}</span> |",
+    "on-click": "sway mode 'default'"
   },
   "idle_inhibitor": {
-    "format": " {icon} ",
+    "format": "{icon}",
     "format-icons": {
-      "activated": " ",
-      "deactivated": " "
+      "activated": " ",
+      "deactivated": " "
     }
   },
   "temperature": {
@@ -53,14 +53,14 @@
   },
   "clock": {
     "tooltip-format": "<tt>{calendar}</tt>",
-    "format": " {:  %Y-%m-%d  󰥔  %H:%M}",
+    "format": " {:%Y-%m-%d 󰥔 %H:%M}",
     "interval": 1
   },
   "cpu": {
-    "format": " {usage}% 󰍹  "
+    "format": "{usage}% 󰍹"
   },
   "memory": {
-    "format": " {}% 󰍛 "
+    "format": "{}% 󰍛"
   },
   "battery": {
     "interval": 1,
@@ -69,10 +69,10 @@
       "warning": 30,
       "critical": 15
     },
-    "format": " {capacity}% {icon} ",
-    "format-charging": " {capacity}% 󰂈 ",
-    "format-plugged": " {capacity}% 󰂈 ",
-    "format-alt": " {time} {icon} ",
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂈",
+    "format-plugged": "{capacity}% 󰂈",
+    "format-alt": "{time} {icon}",
     "format-icons": [
       "󰂃",
       "󰁻",
@@ -82,20 +82,20 @@
     ]
   },
   "network": {
-    "format-wifi": " {essid} ({signalStrength}%)   ",
-    "format-ethernet": " {ipaddr}/{cidr} 󰈀  ",
-    "tooltip-format": " {ifname} via {gwaddr}  ",
-    "format-linked": " {ifname} (No IP)  ",
-    "format-disconnected": " Disconnected ⚠ ",
-    "format-alt": " {ifname}: {ipaddr}/{cidr} "
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀 ",
+    "tooltip-format": "{ifname} via {gwaddr}  ",
+    "format-linked": "{ifname} (No IP)  ",
+    "format-disconnected": "Disconnected ⚠ ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "pulseaudio": {
-    "format": " {volume}% 󰋋 ",
-    "format-bluetooth": " {volume}% 󰋋  ",
-    "format-bluetooth-muted": " 0% 󰟎  ",
-    "format-muted": " 0% 󰟎 ",
-    "format-source": " {volume}%  ",
-    "format-source-muted": "  ",
+    "format": "{volume}% 󰋋",
+    "format-bluetooth": "{volume}% 󰋋 ",
+    "format-bluetooth-muted": "0% 󰟎 ",
+    "format-muted": "0% 󰟎",
+    "format-source": "{volume}% ",
+    "format-source-muted": " ",
     "on-click": "pavucontrol"
   }
 }

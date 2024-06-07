@@ -1,5 +1,5 @@
 * {
-  font-family: Zed Sans Extended;
+  font-family: "Zed Mono", "Jetbrains Mono NF";
   font-weight: bold;
   font-size: 20px;
 }
@@ -11,7 +11,7 @@ window#waybar {
 
 #workspaces button {
   margin: 0;
-  padding: 0 2px;
+  padding: 0 2px 0 2px;
   background-color: #1a1b26;
   color: #c0caf5;
   border-radius: 0;
@@ -23,36 +23,33 @@ window#waybar {
   color: #181926;
 }
 
+#workspaces button.urgent {
+  background-color: #f7768e;
+  color: #181926;
+}
+
 #workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
   background-color: #7aa2f7;
   color: #181926;
 }
 
 #mode {
-  background-color: #f7768e;
-  color: #181926;
+  background-color: #1a1b26;
+  color: #c0caf5;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#network,
-#pulseaudio,
-#tray,
-#mode,
-#idle_inhibitor,
-#window,
-#workspaces {
-  margin: 0 4px;
+#clock, #battery, #memory, #disk, #network, #tray, #mode, #idle_inhibitor, #window, #workspaces {
+  margin: 0 10px;
 }
 
-.modules-left>widget:first-child>#workspaces {
+.modules-left > widget:first-child > #workspaces {
   margin-left: 0;
+  margin-right: 5px;
 }
 
-.modules-right>widget:last-child>#workspaces {
+.modules-right > widget:last-child > #workspaces {
   margin-right: 0;
 }
 
@@ -65,8 +62,7 @@ window#waybar {
   color: #c0caf5;
 }
 
-#battery.charging,
-#battery.plugged {
+#battery.charging, #battery.plugged {
   background-color: #1a1b26;
 }
 
@@ -75,16 +71,12 @@ window#waybar {
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f7768e;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  color: #f7768e;
 }
 
 #cpu {
   background-color: #1a1b26;
+  margin: 0 16px 0 8px;
 }
 
 #memory {
@@ -101,6 +93,7 @@ window#waybar {
 
 #pulseaudio {
   color: #c0caf5;
+  margin: 0 8px 0 4px;
 }
 
 #pulseaudio.muted {
@@ -117,6 +110,8 @@ window#waybar {
 }
 
 #idle_inhibitor.activated {
-  color: #1a1b26;
-  background-color: #c0caf5;
+  color: #c0caf5;
+  background-color: #1a1b26;
 }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,7 +1,9 @@
 local dap = require("dap")
 local dapui = require("dapui")
-local debugpy_path = vim.fn.getenv("HOME")
-  .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+local debugpy_path = vim.fn.stdpath("data")
+  .. "/mason/packages/debugpy/venv/bin/python"
+
+require("dap-python").setup(debugpy_path)
 
 dapui.setup()
 
@@ -10,17 +12,14 @@ vim.keymap.set("n", "<F1>", dap.step_into)
 vim.keymap.set("n", "<F2>", dap.step_over)
 vim.keymap.set("n", "<F3>", dap.step_out)
 vim.keymap.set("n", "<C-b>", dap.toggle_breakpoint)
+vim.keymap.set("n", "<F7>", dapui.toggle)
 vim.keymap.set("n", "<leader><C-b>", function()
   dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end)
 
-vim.keymap.set("n", "<F7>", dapui.toggle)
-
 dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 dap.listeners.before.event_exited["dapui_config"] = dapui.close
-
-require("dap-python").setup(debugpy_path)
 
 dap.adapters.codelldb = {
   type = "server",

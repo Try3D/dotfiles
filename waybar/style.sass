@@ -1,0 +1,107 @@
+// Gruvbox Material
+// $background: #141617
+// $light-fg: #141617
+// $foreground: #ddc7a1
+// $red: #ea6962
+// $green: #a9b665
+// $blue: #7daea3
+
+// Tokyo night Storm
+$background: #1a1b26
+$light-fg: #181926
+$foreground: #c0caf5
+$red: #f7768e
+$green: #9ece6a
+$blue: #7aa2f7
+
+*
+  font-family: "Zed Mono", "Jetbrains Mono NF"
+  font-weight: bold
+  font-size: 20px
+
+window#waybar
+  background-color: $background
+  color: $foreground
+
+#workspaces button
+  margin: 0
+  padding: 0 2px 0 2px
+  background-color: $background
+  color: $foreground
+  border-radius: 0
+  transition: 0s
+
+#workspaces button.focused
+  background-color: $foreground
+  color: $light-fg
+
+#workspaces button.urgent
+  background-color: $red
+  color: $light-fg
+
+#workspaces button:hover
+  box-shadow: inherit
+  text-shadow: inherit
+  background-color: $blue
+  color: $light-fg
+
+#mode
+  background-color: $background
+  color: $foreground
+
+#clock, #battery, #memory, #disk, #network, #tray, #mode, #idle_inhibitor, #window, #workspaces
+  margin: 0 10px
+
+.modules-left > widget:first-child > #workspaces
+  margin-left: 0
+  margin-right: 5px
+
+.modules-right > widget:last-child > #workspaces
+  margin-right: 0
+
+#clock
+  background-color: $background
+
+#battery
+  background-color: $background
+  color: $foreground
+
+#battery.charging, #battery.plugged
+  background-color: $background
+
+#battery.full
+  color: $green
+
+#battery.critical:not(.charging)
+  color: $red
+
+#cpu
+  background-color: $background
+  margin: 0 16px 0 8px
+
+#memory
+  background-color: $background
+
+#network
+  background-color: $background
+
+#network.disconnected
+  color: $red
+
+#pulseaudio
+  color: $foreground
+  margin: 0 8px 0 4px
+
+#pulseaudio.muted
+  color: $red
+
+#tray
+  background-color: $background
+
+#idle_inhibitor
+  background-color: $background
+  color: $foreground
+
+#idle_inhibitor.activated
+  color: $foreground
+  background-color: $background
