@@ -4,14 +4,9 @@ local luasnip = require("luasnip")
 
 luasnip.config.setup()
 
-require("lspkind").init({
-  symbol_map = {
-    -- Copilot = "",
-  },
-})
+require("lspkind").init()
 
 local menu = {
-  -- copilot = "[CP]",
   path = "[PATH]",
   nvim_lsp = "[LSP]",
   luasnip = "[SNIP]",
@@ -39,8 +34,8 @@ cmp.setup({
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    ["<C-x>"] = cmp.mapping.abort(),
-    ["<C-Space>"] = cmp.mapping.complete({}),
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<C-Space>"] = cmp.mapping.complete(),
     ["<c-y>"] = cmp.mapping(cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
@@ -48,7 +43,6 @@ cmp.setup({
   }),
 
   sources = {
-    -- { name = "copilot" },
     { name = "path" },
     { name = "luasnip" },
     { name = "nvim_lsp" },

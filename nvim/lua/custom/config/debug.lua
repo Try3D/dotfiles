@@ -21,15 +21,28 @@ dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
-dap.adapters.codelldb = {
-  type = "server",
-  host = "127.0.0.1",
-  port = "${port}",
-  executable = {
-    command = "codelldb",
-    args = {
-      "--port",
-      "${port}",
+dap.adapters = {
+  codelldb = {
+    type = "server",
+    host = "127.0.0.1",
+    port = "${port}",
+    executable = {
+      command = "codelldb",
+      args = {
+        "--port",
+        "${port}",
+      },
+    },
+  },
+  pwa_node = {
+    type = "server",
+    host = "::1",
+    port = "${port}",
+    executable = {
+      command = "js-debug-adapter",
+      args = {
+        "${port}",
+      },
     },
   },
 }
@@ -51,5 +64,18 @@ dap.configurations.c = {
   },
 }
 
+dap.configurations.typescript = {
+  {
+    type = "pwa_node",
+    request = "launch",
+    name = "Launch file",
+    program = "${file}",
+    cwd = "${workspaceFolder}",
+  },
+}
+
 dap.configurations.rust = dap.configurations.c
 dap.configurations.cpp = dap.configurations.c
+dap.configurations.javascipt = dap.configurations.typescript
+dap.configurations.javasciptreact = dap.configurations.typescript
+dap.configurations.typesciptreact = dap.configurations.typescript

@@ -1,0 +1,80 @@
+{
+  "editor": "/usr/bin/env nvim",
+  "bootstrap": {},
+  "update": {},
+  "alacritty": {
+    "location": "$HOME/.config/alacritty",
+    "main": "alacritty.toml"
+  },
+  "bin": {
+    "location": "$HOME/bin",
+    "main": "tmuxsessionizer"
+  },
+  "foot": {
+    "location": "$HOME/.config/foot",
+    "main": "foot.ini"
+  },
+  "i3": {
+    "location": "$HOME/.config/i3",
+    "main": "config"
+  },
+  "keyboard": {
+    "location": "$HOME/.config/xkb",
+    "main": "programmers-colemak.xkb"
+  },
+  "nvim": {
+    "location": "$HOME/.config/nvim",
+    "main": "init.lua"
+  },
+  "picom": {
+    "location": "$HOME/.config/picom",
+    "main": "picom.conf"
+  },
+  "polybar": {
+    "location": "$HOME/.config/polybar",
+    "main": "config.ini"
+  },
+  "starship": {
+    "location": [
+      {
+        "src": "starship.toml",
+        "dest": "$HOME/.config/starship.toml"
+      }
+    ],
+    "main": "starship.toml"
+  },
+  "tmux": {
+    "location": [
+      {
+        "src": "tmux.conf",
+        "dest": "$HOME/.tmux.conf" }
+    ],
+    "main": "tmux.conf"
+  },
+  "sway": {
+    "location": "$HOME/.config/sway",
+    "main": "config"
+  },
+  "vim": {
+    "location": [
+      {
+        "src": "vimrc",
+        "dest": "$HOME/.vimrc"
+      }
+    ],
+    "main": "vimrc"
+  },
+  "waybar": {
+    "location": "$HOME/.config/waybar",
+    "main": "config.jsonc"
+  },
+  "zsh": {
+    "location": [
+      {
+        "src": "zshrc",
+        "dest": "$HOME/.zshrc"
+      }
+    ],
+    "main": "zshrc"
+  }
+}

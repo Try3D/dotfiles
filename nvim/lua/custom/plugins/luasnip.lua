@@ -15,11 +15,11 @@ return {
       end
     end, { silent = true })
 
-    -- vim.keymap.set({ "i", "s" }, "<c-i>", function()
-    --     if ls.jumpable(-1) then
-    --         ls.jump(-1)
-    --     end
-    -- end, { silent = true })
+    vim.keymap.set({ "i", "s" }, "<c-i>", function()
+      if ls.jumpable(-1) then
+        ls.jump(-1)
+      end
+    end, { silent = true })
 
     vim.keymap.set("i", "<c-e>", function()
       if ls.choice_active() then

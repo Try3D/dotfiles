@@ -1,0 +1,15 @@
+#!/bin/bash
+
+NAME="home"
+
+if [[ -n "$TMUX" ]]; then
+  tmux detach
+  exec "$0" "$@"
+fi
+
+if ! tmux has-session -t $NAME 2>/dev/null; then
+  tmux new-session -s $NAME -d
+  echo "Created new tmux session named '$NAME'."
+fi
+
+tmux attach-session -t $NAME

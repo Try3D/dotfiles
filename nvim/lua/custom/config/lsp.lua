@@ -2,21 +2,16 @@ require("mason").setup()
 
 require("mason-tool-installer").setup({
   ensure_installed = {
-    "astro-language-server",
-    "clang-format",
-    "clangd",
-    "codelldb",
+    "css-lsp",
     "debugpy",
     "gopls",
+    "html-lsp",
+    "json-lsp",
     "lua-language-server",
     "prettier",
-    "pyright",
     "ruff",
     "stylua",
-    "svelte-language-server",
-    "tailwindcss-language-server",
     "typescript-language-server",
-    "zls",
   },
   run_on_start = true,
 })
@@ -66,11 +61,6 @@ local on_attach = function()
   vim.keymap.set("n", "<space>dq", vim.diagnostic.setloclist)
 end
 
-require("lspconfig").jdtls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
 require("lspconfig").lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -108,7 +98,7 @@ require("lspconfig").svelte.setup({
   on_attach = on_attach,
 })
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
@@ -134,6 +124,11 @@ require("lspconfig").gopls.setup({
 })
 
 require("lspconfig").zls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+require("lspconfig").ocamllsp.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
