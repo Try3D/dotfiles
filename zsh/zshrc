@@ -1,3 +1,5 @@
+bindkey -e
+
 HISTSIZE=1000000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -13,11 +15,11 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
-# bindkey -s '^t' "tmuxsessionizer\n"
-# bindkey -s '^w' "cd ~/dotfiles;  ds edit \$\(ds edit \| fzf\); cd - > /dev/null\n"
-bindkey "[C" forward-word
-bindkey "[D" backward-word
+bindkey '\e[1;3D' backward-word
+bindkey '\e[1;3C' forward-word
+
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -64,6 +66,9 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+# UV
+source $HOME/.local/bin/env
+
 eval "$(fnm env --use-on-cd --shell zsh)"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -79,5 +84,10 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 # This section can be safely removed at any time if needed.
 [[ ! -r '/Users/rsaran/.opam/opam-init/init.zsh' ]] || source '/Users/rsaran/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+#
 
-eval "$(rbenv init -)"
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+export EDITOR="nvim"
+
+. "$HOME/.local/bin/env"

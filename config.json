@@ -14,6 +14,10 @@
     "location": "$HOME/.config/foot",
     "main": "foot.ini"
   },
+  "ghostty": {
+    "location": "$HOME/Library/Application Support/com.mitchellh.ghostty",
+    "main": "config"
+  },
   "i3": {
     "location": "$HOME/.config/i3",
     "main": "config"
@@ -47,7 +51,8 @@
     "location": [
       {
         "src": "tmux.conf",
-        "dest": "$HOME/.tmux.conf" }
+        "dest": "$HOME/.tmux.conf"
+      }
     ],
     "main": "tmux.conf"
   },

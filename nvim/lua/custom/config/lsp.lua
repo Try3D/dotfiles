@@ -76,6 +76,17 @@ require("lspconfig").lua_ls.setup({
 require("lspconfig").pyright.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  cmd = { "pyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly",
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
 })
 
 require("lspconfig").clangd.setup({

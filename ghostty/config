@@ -1,0 +1,7 @@
+theme=tokyonight
+font-family=ZedMono Nerd Font Mono
+font-size=19
+font-feature=-liga,-calt,-dlig
+command = /bin/zsh -lic "home"
+
+keybind = "option+backspace=text:\x17"
