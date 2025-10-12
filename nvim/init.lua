@@ -19,27 +19,6 @@ require("lazy").setup({
   "theprimeagen/vim-be-good",
 
   {
-    "nvim-neorg/neorg",
-    lazy = false,
-    version = "*",
-    config = function()
-      require("neorg").setup({
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-            },
-          },
-        },
-      })
-    end,
-  },
-
-  {
     "mfussenegger/nvim-dap",
     dependencies = {
       "rcarriga/nvim-dap-ui",

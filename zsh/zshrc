@@ -67,7 +67,7 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 # UV
-source $HOME/.local/bin/env
+# source $HOME/.local/bin/env
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 
@@ -90,4 +90,5 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
 export EDITOR="nvim"
 
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"

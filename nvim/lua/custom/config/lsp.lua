@@ -61,7 +61,7 @@ local on_attach = function()
   vim.keymap.set("n", "<space>dq", vim.diagnostic.setloclist)
 end
 
-require("lspconfig").lua_ls.setup({
+vim.lsp.config["lua_ls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
@@ -71,9 +71,9 @@ require("lspconfig").lua_ls.setup({
       },
     },
   },
-})
+}
 
-require("lspconfig").pyright.setup({
+vim.lsp.config["pyright"] = {
   capabilities = capabilities,
   on_attach = on_attach,
   cmd = { "pyright-langserver", "--stdio" },
@@ -87,64 +87,81 @@ require("lspconfig").pyright.setup({
       },
     },
   },
-})
+}
 
-require("lspconfig").clangd.setup({
+vim.lsp.config["clangd"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").html.setup({
+vim.lsp.config["html"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").cssls.setup({
+vim.lsp.config["cssls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").svelte.setup({
+vim.lsp.config["svelte"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").ts_ls.setup({
+vim.lsp.config["ts_ls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").astro.setup({
+vim.lsp.config["astro"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").tailwindcss.setup({
+vim.lsp.config["tailwindcss"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").rust_analyzer.setup({
+vim.lsp.config["rust_analyzer"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").gopls.setup({
+vim.lsp.config["gopls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").zls.setup({
+vim.lsp.config["zls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").ocamllsp.setup({
+vim.lsp.config["ocamllsp"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-})
+}
 
-require("lspconfig").jsonls.setup({
+vim.lsp.config["jsonls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
+}
+
+vim.lsp.enable({
+  "lua_ls",
+  "pyright",
+  "clangd",
+  "html",
+  "cssls",
+  "svelte",
+  "ts_ls",
+  "astro",
+  "tailwindcss",
+  "rust_analyzer",
+  "gopls",
+  "zls",
+  "ocamllsp",
+  "jsonls",
 })

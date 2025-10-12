@@ -30,6 +30,10 @@
     "location": "$HOME/.config/nvim",
     "main": "init.lua"
   },
+  "opencode": {
+    "location": "$HOME/.config/opencode",
+    "main": "opencode.json"
+  },
   "picom": {
     "location": "$HOME/.config/picom",
     "main": "picom.conf"

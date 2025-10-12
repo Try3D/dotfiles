@@ -5,6 +5,7 @@ return {
 
     conform.setup({
       formatters_by_ft = {
+        svelte = { "prettier" },
         lua = { "stylua" },
         go = { "gofmt" },
         javascript = { "prettier" },

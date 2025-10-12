@@ -1,5 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "master",
+  lazy = false,
+  build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-context",
     "windwp/nvim-ts-autotag",
@@ -10,6 +13,7 @@ return {
 
     require("nvim-treesitter.configs").setup({
       ensure_installed = "all",
+      ignore_install = { "ipkg" },
 
       highlight = {
         enable = true,
