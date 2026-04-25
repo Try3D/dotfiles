@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+SETTINGS="$HOME/.claude/settings.json"
+BACKUP_DIR="$HOME/.claude/claude-switcher"
+mkdir -p "$BACKUP_DIR"
+
+case "$1" in
+  claude)
+    cp "$SETTINGS" "$BACKUP_DIR/settings-$(date +%Y%m%d-%H%M%S).json"
+    python3 -c "
+import json
+with open('$SETTINGS') as f:
+    data = json.load(f)
+data.pop('env', None)
+with open('$SETTINGS', 'w') as f:
+    json.dump(data, f, indent=2)
+"
+    echo "Switched to claude — env block removed. Backup saved."
+    ;;
+  minimax)
+    cp "$SETTINGS" "$BACKUP_DIR/settings-$(date +%Y%m%d-%H%M%S).json"
+    python3 -c "
+import json
+with open('$SETTINGS') as f:
+    data = json.load(f)
+data['env'] = {
+    'ANTHROPIC_BASE_URL': 'https://api.minimax.io/anthropic',
+    'ANTHROPIC_AUTH_TOKEN': 'sk-cp-ZTkKYLsRdAmlz0c7mkxB_8znnldar_d3Ej5hQQXdXoVqWSuVMK0ahQcIw3F-AIfxJgnvmIdGiv65QM-Wu49fC6UAt0Pn2IWBXxGAiOk3uY5e16ZcoJtW6tU',
+    'API_TIMEOUT_MS': '3000000',
+    'CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC': '1',
+    'ANTHROPIC_MODEL': 'MiniMax-M2.7',
+    'ANTHROPIC_SMALL_FAST_MODEL': 'MiniMax-M2.7',
+    'ANTHROPIC_DEFAULT_SONNET_MODEL': 'MiniMax-M2.7',
+    'ANTHROPIC_DEFAULT_OPUS_MODEL': 'MiniMax-M2.7',
+    'ANTHROPIC_DEFAULT_HAIKU_MODEL': 'MiniMax-M2.7'
+}
+with open('$SETTINGS', 'w') as f:
+    json.dump(data, f, indent=2)
+"
+    echo "Switched to minimax — env block set. Backup saved."
+    ;;
+  toggle)
+    SCRIPT=$(realpath "$0")
+    CURRENT=$(python3 -c "
+import json
+with open('$SETTINGS') as f:
+    data = json.load(f)
+print('minimax' if 'env' in data else 'claude')
+")
+    if [ "$CURRENT" = "minimax" ]; then
+      bash "$SCRIPT" claude
+    else
+      bash "$SCRIPT" minimax
+    fi
+    ;;
+  *)
+    echo "Usage: claude-switcher <claude|minimax|toggle>"
+    exit 1
+    ;;
+esac

@@ -27,8 +27,8 @@ set({ "n", "v" }, "<leader>y", [["+y]])
 set("n", "<leader>xl", "<cmd>lopen<cr>")
 
 set("n", "<leader>q", "<cmd>copen<cr>")
-set("n", "<c-]>", "<cmd>cnext<cr>")
-set("n", "<c-[>", "<cmd>cprev<cr>")
+set("n", "<c-j>", "<cmd>cnext<cr>")
+set("n", "<c-k>", "<cmd>cprev<cr>")
 
 set("n", "dd", "<nop>")
 set("n", "yy", "<nop>")

@@ -3,7 +3,24 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find /home/ ~/Projects -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(echo -e "[New project]\n$(find ~/Projects ~/Experiments/ -mindepth 1 -maxdepth 1 -type d)" | fzf)
+
+    if [[ $selected == "[New project]" ]]; then
+        category=$(echo -e "Experiments\nProjects" | fzf)
+
+        if [[ -z $category ]]; then
+            exit 0
+        fi
+
+        read "project_name?Enter project name: "
+
+        if [[ -z $project_name ]]; then
+            exit 0
+        fi
+
+        selected="$HOME/$category/$project_name"
+        mkdir -p "$selected"
+    fi
 fi
 
 if [[ -z $selected ]]; then
@@ -18,8 +35,6 @@ if [ ! $tmux_running ]; then
     exit 0
 fi
 
-# If there is at least a tmux server running
-# And if you're not inside tmux, then either attach to the session or create it:
 if [ -z "$TMUX" ]; then
     tmux new-session -A -s $selected_name -c $selected
     exit 0

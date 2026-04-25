@@ -3,14 +3,19 @@ require("mason").setup()
 require("mason-tool-installer").setup({
   ensure_installed = {
     "css-lsp",
+    "clangd",
     "debugpy",
     "gopls",
     "html-lsp",
+    "jdtls",
     "json-lsp",
     "lua-language-server",
     "prettier",
+    "pyright",
     "ruff",
     "stylua",
+    "svelte-language-server",
+    "tailwindcss-language-server",
     "typescript-language-server",
   },
   run_on_start = true,
@@ -49,7 +54,7 @@ local on_attach = function()
   )
 
   vim.keymap.set("n", "K", vim.lsp.buf.hover)
-  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+  vim.keymap.set("n", "<leader>K", vim.lsp.buf.signature_help)
 
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
   vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder)
@@ -114,14 +119,21 @@ vim.lsp.config["ts_ls"] = {
   on_attach = on_attach,
 }
 
-vim.lsp.config["astro"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
 vim.lsp.config["tailwindcss"] = {
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    tailwindCSS = {
+      classAttributes = {
+        "class",
+        "className",
+        "class:list",
+        "classList",
+        "ngClass",
+        "headerClassName",
+      },
+    },
+  },
 }
 
 vim.lsp.config["rust_analyzer"] = {
@@ -134,17 +146,17 @@ vim.lsp.config["gopls"] = {
   on_attach = on_attach,
 }
 
+vim.lsp.config["jsonls"] = {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
 vim.lsp.config["zls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
 }
 
-vim.lsp.config["ocamllsp"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
-vim.lsp.config["jsonls"] = {
+vim.lsp.config["jdtls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
 }
@@ -157,11 +169,10 @@ vim.lsp.enable({
   "cssls",
   "svelte",
   "ts_ls",
-  "astro",
   "tailwindcss",
   "rust_analyzer",
   "gopls",
-  "zls",
-  "ocamllsp",
   "jsonls",
+  "zls",
+  "jdtls",
 })

@@ -1,7 +1,14 @@
+macos-titlebar-style = hidden
+# macos-non-native-fullscreen = true
 theme=tokyonight
 font-family=ZedMono Nerd Font
-font-size=19
+
+font-size=16
 font-feature=-liga,-calt,-dlig
 command = /bin/zsh -lic "home"
 
 keybind = "option+backspace=text:\x17"
+keybind = "ctrl+tab=text:\x1b[1;5I"
+keybind = "ctrl+shift+tab=text:\x1b[1;6I"
+
+macos-option-as-alt = true

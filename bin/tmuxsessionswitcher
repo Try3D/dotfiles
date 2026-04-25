@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+current=$(tmux display-message -p '#S')
+
+selected=$(tmux list-sessions -F "#{session_name}" | grep -v "^${current}$" | fzf \
+    --preview 'tmux list-windows -t {} -F "  #{window_index}: #{window_name}#{?window_active,  ←,}"; echo; tmux capture-pane -ep -t {}' \
+    --preview-window 'right:75%' \
+    --border \
+    --prompt 'session> ')
+
+[[ -z $selected ]] && exit 0
+
+tmux switch-client -t "$selected"

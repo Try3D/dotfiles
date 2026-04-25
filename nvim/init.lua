@@ -36,7 +36,6 @@ require("lazy").setup({
     dependencies = {
       "williamboman/mason.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
-      "mfussenegger/nvim-jdtls",
     },
     config = function()
       require("custom.config.lsp")
@@ -44,4 +43,24 @@ require("lazy").setup({
   },
 
   { import = "custom.plugins" },
+
+  {
+    "ms-jpq/chadtree",
+    branch = "chad",
+    build = "python3 -m chadtree deps",
+    config = function()
+      vim.keymap.set("n", "<c-e>", ":CHADopen<CR>")
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-jdtls",
+    config = function()
+      vim.lsp.enable("jdtls")
+    end,
+  },
+
+  {
+    dir = "~/workspace/Projects/diffview.nvim",
+  },
 }, {})

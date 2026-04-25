@@ -4,7 +4,7 @@ local on_attach = function()
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
   vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
-  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+  -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 
@@ -28,7 +28,7 @@ local on_attach = function()
   )
 
   vim.keymap.set("n", "K", vim.lsp.buf.hover)
-  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+  vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help)
 
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
   vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder)

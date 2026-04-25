@@ -7,10 +7,13 @@ setopt appendhistory
 setopt sharehistory
 
 alias ls=eza
+alias claude='claude --allow-dangerously-skip-permissions'
+alias review='nvim -c "DiffviewOpen"'
+
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 
-export PATH=$PATH:/opt/homebrew/bin
+# export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/bin
@@ -45,7 +48,6 @@ zinit light-mode for \
     zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
-    # romkatv/powerlevel10k \
 
 ### End of Zinit's installer chunk
 
@@ -55,9 +57,6 @@ zinit light-mode for \
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Zulu Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 
 # fnm
 FNM_PATH="/Users/rsaran/Library/Application Support/fnm"
@@ -71,24 +70,34 @@ fi
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+# export ANDROID_HOME=$HOME/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
-
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/Users/rsaran/.opam/opam-init/init.zsh' ]] || source '/Users/rsaran/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
-#
-
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 export EDITOR="nvim"
 
 # . "$HOME/.local/bin/env"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+source $HOME/.local/bin/env
+
+export AIRFLOW_HOME=~/airflow
+
+# Pyspark
+export PYSPARK_PYTHON=/Users/rsaran/virtualenvs/spark-env/bin/python
+export PYSPARK_DRIVER_PYTHON=/Users/rsaran/virtualenvs/spark-env/bin/python
+
+# Shopify Hydrogen alias to local projects
+alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
+
+export MINIMAX_API_KEY="sk-cp-ZTkKYLsRdAmlz0c7mkxB_8znnldar_d3Ej5hQQXdXoVqWSuVMK0ahQcIw3F-AIfxJgnvmIdGiv65QM-Wu49fC6UAt0Pn2IWBXxGAiOk3uY5e16ZcoJtW6tU"
+
+# opencode
+export PATH=/Users/rsaran/.opencode/bin:$PATH
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"

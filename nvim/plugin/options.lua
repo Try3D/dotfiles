@@ -34,3 +34,5 @@ opt.timeoutlen = 500
 g.netrw_winsize = 20
 g.netrw_banner = 0
 g.netrw_localcopydircmd = "cp -r"
+
+vim.opt.autoread = true
