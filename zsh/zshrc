@@ -70,11 +70,9 @@ fi
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-# export ANDROID_HOME=$HOME/Library/Android/sdk
-# export PATH=$PATH:$ANDROID_HOME/emulator
-# export PATH=$PATH:$ANDROID_HOME/platform-tools
-# export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export EDITOR="nvim"
 
@@ -87,17 +85,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 source $HOME/.local/bin/env
 
-export AIRFLOW_HOME=~/airflow
-
-# Pyspark
-export PYSPARK_PYTHON=/Users/rsaran/virtualenvs/spark-env/bin/python
-export PYSPARK_DRIVER_PYTHON=/Users/rsaran/virtualenvs/spark-env/bin/python
-
-# Shopify Hydrogen alias to local projects
-alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
-
-export MINIMAX_API_KEY="sk-cp-ZTkKYLsRdAmlz0c7mkxB_8znnldar_d3Ej5hQQXdXoVqWSuVMK0ahQcIw3F-AIfxJgnvmIdGiv65QM-Wu49fC6UAt0Pn2IWBXxGAiOk3uY5e16ZcoJtW6tU"
-
 # opencode
 export PATH=/Users/rsaran/.opencode/bin:$PATH
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/rsaran/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

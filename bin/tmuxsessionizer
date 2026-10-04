@@ -3,10 +3,10 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(echo -e "[New project]\n$(find ~/Projects ~/Experiments/ -mindepth 1 -maxdepth 1 -type d)" | fzf)
+    selected=$(echo -e "[New project]\n$(find ~/workspace -mindepth 2 -maxdepth 2 -type d)" | fzf)
 
     if [[ $selected == "[New project]" ]]; then
-        category=$(echo -e "Experiments\nProjects" | fzf)
+        category=$(find ~/workspace -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | fzf)
 
         if [[ -z $category ]]; then
             exit 0
@@ -18,7 +18,7 @@ else
             exit 0
         fi
 
-        selected="$HOME/$category/$project_name"
+        selected="$HOME/workspace/$category/$project_name"
         mkdir -p "$selected"
     fi
 fi
@@ -30,18 +30,18 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [ ! $tmux_running ]; then
-    tmux new-session -s $selected_name -c $selected
+if [ -z "$tmux_running" ]; then
+    tmux new-session -s "$selected_name" -c "$selected"
     exit 0
 fi
 
 if [ -z "$TMUX" ]; then
-    tmux new-session -A -s $selected_name -c $selected
+    tmux new-session -A -s "$selected_name" -c "$selected"
     exit 0
 fi
 
-if ! tmux has-session -t $selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t "$selected_name" 2> /dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
-tmux switch-client -t $selected_name
+tmux switch-client -t "$selected_name"

@@ -3,7 +3,7 @@ macos-titlebar-style = hidden
 theme=tokyonight
 font-family=ZedMono Nerd Font
 
-font-size=16
+font-size=18
 font-feature=-liga,-calt,-dlig
 command = /bin/zsh -lic "home"
 

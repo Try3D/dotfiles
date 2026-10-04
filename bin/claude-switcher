@@ -17,6 +17,11 @@ with open('$SETTINGS', 'w') as f:
     echo "Switched to claude — env block removed. Backup saved."
     ;;
   minimax)
+    if [ -z "$MINIMAX_API_KEY" ]; then
+        echo "claude-switcher: MINIMAX_API_KEY is not set." >&2
+        echo "Add it to ~/.config/opencode/secrets.zsh (kept out of this public repo)." >&2
+        exit 1
+    fi
     cp "$SETTINGS" "$BACKUP_DIR/settings-$(date +%Y%m%d-%H%M%S).json"
     python3 -c "
 import json
@@ -24,7 +29,7 @@ with open('$SETTINGS') as f:
     data = json.load(f)
 data['env'] = {
     'ANTHROPIC_BASE_URL': 'https://api.minimax.io/anthropic',
-    'ANTHROPIC_AUTH_TOKEN': 'sk-cp-ZTkKYLsRdAmlz0c7mkxB_8znnldar_d3Ej5hQQXdXoVqWSuVMK0ahQcIw3F-AIfxJgnvmIdGiv65QM-Wu49fC6UAt0Pn2IWBXxGAiOk3uY5e16ZcoJtW6tU',
+    'ANTHROPIC_AUTH_TOKEN': '$MINIMAX_API_KEY',
     'API_TIMEOUT_MS': '3000000',
     'CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC': '1',
     'ANTHROPIC_MODEL': 'MiniMax-M2.7',

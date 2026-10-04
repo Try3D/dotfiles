@@ -25,7 +25,7 @@ return {
           },
         },
         lualine_y = { "filetype" },
-        lualine_z = { "progress" },
+        lualine_z = { "location" },
       },
     })
   end,

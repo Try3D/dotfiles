@@ -1,13 +1,26 @@
-#!/bin/zsh
+#!/usr/bin/env bash
+hist="$HOME/.tmux/session-history"
+cur=$(tmux display-message -p '#S')
+mkdir -p "${hist%/*}"
 
-current=$(tmux display-message -p '#S')
+# move $1 to the end (most recent)
+record() { { [ -f "$hist" ] && grep -vxF -- "$1" "$hist"; echo "$1"; } > "$hist.tmp" && mv "$hist.tmp" "$hist"; }
 
-selected=$(tmux list-sessions -F "#{session_name}" | grep -v "^${current}$" | fzf \
-    --preview 'tmux list-windows -t {} -F "  #{window_index}: #{window_name}#{?window_active,  ←,}"; echo; tmux capture-pane -ep -t {}' \
-    --preview-window 'right:75%' \
-    --border \
-    --prompt 'session> ')
+record "$cur"
 
-[[ -z $selected ]] && exit 0
+live=$(tmux list-sessions -F '#{session_name}')
 
-tmux switch-client -t "$selected"
+# drop history entries whose session no longer exists
+if [ -f "$hist" ]; then
+    grep -xF -f <(printf '%s\n' "$live") "$hist" > "$hist.tmp"
+    [ $? -le 1 ] && mv "$hist.tmp" "$hist"
+fi
+
+sel=$({ tail -r "$hist"; printf '%s\n' "$live"; } |
+    awk '!seen[$0]++' | grep -vxF -- "$cur" |
+    fzf --preview 'tmux list-windows -t {} -F "  #{window_index}: #{window_name}#{?window_active,  ←,}"; echo; tmux capture-pane -ep -t {}' \
+        --preview-window 'right:75%' --border --prompt 'session> ')
+
+[ -n "$sel" ] || exit 0
+record "$sel"
+tmux switch-client -t "$sel"

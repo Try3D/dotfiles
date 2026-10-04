@@ -50,13 +50,12 @@ require("lazy").setup({
     build = "python3 -m chadtree deps",
     config = function()
       vim.keymap.set("n", "<c-e>", ":CHADopen<CR>")
-    end,
-  },
-
-  {
-    "mfussenegger/nvim-jdtls",
-    config = function()
-      vim.lsp.enable("jdtls")
+      local chadtree_settings = {
+        view = {
+          width = 28,
+        },
+      }
+      vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
     end,
   },
 

@@ -17,10 +17,6 @@ return {
         scss = { "prettier" },
         css = { "prettier" },
       },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
     })
 
     vim.keymap.set("n", "<c-f>", function()

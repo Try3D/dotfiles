@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "tokyonight",
   "mcp": {
     "playwright": {
       "type": "local",
@@ -8,11 +7,7 @@
         "npx",
         "@playwright/mcp@latest"
       ],
-      "enabled": true
+      "enabled": false
     }
-  },
-  "keybinds": {
-    "messages_page_up": "ctrl+u",
-    "messages_page_down": "ctrl+d",
   }
 }

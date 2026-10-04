@@ -5,9 +5,10 @@ set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
+set("n", "<leader>p", "<nop>")
 set("n", "<leader>pa", "<cmd>Explor<CR>")
-set("n", "<leader>pl", "<cmd>Lexplor<CR>")
-set("n", "<leader>ps", "<cmd>Sexplor<CR>")
+-- set("n", "<leader>pl", "<cmd>Lexplor<CR>") -- reassigned to pi clear-highlights in pi_bridge.lua
+-- set("n", "<leader>ps", "<cmd>Sexplor<CR>") -- reassigned to pi session telescope in pi_bridge.lua
 
 set("n", "<leader>j", "<C-w>j")
 set("n", "<leader>h", "<C-w>h")
