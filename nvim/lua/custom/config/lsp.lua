@@ -4,8 +4,6 @@ require("mason-tool-installer").setup({
   ensure_installed = {
     "css-lsp",
     "clangd",
-    "debugpy",
-    "gopls",
     "html-lsp",
     "jdtls",
     "json-lsp",
@@ -141,11 +139,6 @@ vim.lsp.config["rust_analyzer"] = {
   on_attach = on_attach,
 }
 
-vim.lsp.config["gopls"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
 vim.lsp.config["jsonls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -171,7 +164,6 @@ vim.lsp.enable({
   "ts_ls",
   "tailwindcss",
   "rust_analyzer",
-  "gopls",
   "jsonls",
   "zls",
   "jdtls",

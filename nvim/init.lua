@@ -17,19 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "mfussenegger/nvim-dap-python",
-      "nvim-lua/plenary.nvim",
-      "nvim-neotest/nvim-nio",
-    },
-    config = function()
-      require("custom.config.debug")
-    end,
-  },
-
-  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
