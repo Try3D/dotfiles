@@ -3,22 +3,16 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(echo -e "[New project]\n$(find ~/workspace -mindepth 2 -maxdepth 2 -type d)" | fzf)
+    selected=$(echo -e "[New project]\n$(find ~/workspace -mindepth 1 -maxdepth 1 -type d)" | fzf)
 
     if [[ $selected == "[New project]" ]]; then
-        category=$(find ~/workspace -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | fzf)
-
-        if [[ -z $category ]]; then
-            exit 0
-        fi
-
         read "project_name?Enter project name: "
 
         if [[ -z $project_name ]]; then
             exit 0
         fi
 
-        selected="$HOME/workspace/$category/$project_name"
+        selected="$HOME/workspace/$project_name"
         mkdir -p "$selected"
     fi
 fi

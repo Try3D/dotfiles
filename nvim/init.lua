@@ -16,8 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "theprimeagen/vim-be-good",
-
   {
     "mfussenegger/nvim-dap",
     dependencies = {
@@ -57,9 +55,5 @@ require("lazy").setup({
       }
       vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
     end,
-  },
-
-  {
-    dir = "~/workspace/Projects/diffview.nvim",
   },
 }, {})

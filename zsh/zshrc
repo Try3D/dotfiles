@@ -85,10 +85,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 source $HOME/.local/bin/env
 
-# opencode
-export PATH=/Users/rsaran/.opencode/bin:$PATH
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/rsaran/.rd/bin:$PATH"
